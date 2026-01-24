@@ -1,0 +1,397 @@
+/**
+ * Gallery Component Styles (Optimized)
+ * 相册组件样式（优化版）- 节点地图
+ */
+
+/* Gallery Section */
+.gallery-section {
+  background-color: #1a1a2e;
+  overflow: hidden;
+}
+
+.gallery-description {
+  text-align: center;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Gallery Map Wrapper */
+.gallery-map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background: 
+    radial-gradient(ellipse at center, rgba(0, 166, 126, 0.05) 0%, transparent 70%),
+    linear-gradient(90deg, #1a1a2e 0%, #0d0d14 50%, #1a1a2e 100%);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: grab;
+  box-shadow: inset 0 0 100px rgba(0, 166, 126, 0.02);
+}
+
+/* Grid overlay for space perception */
+.gallery-map-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gallery-map-wrapper:active {
+  cursor: grabbing;
+}
+
+/* Controls */
+.gallery-controls {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  z-index: 10;
+}
+
+.control-btn {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(26, 26, 46, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: var(--text-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(10px);
+}
+
+.control-btn:hover {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 20px rgba(0, 166, 126, 0.4);
+}
+
+/* Gallery Map */
+.gallery-map {
+  position: absolute;
+  width: 2000px;
+  height: 2000px;
+  transform-origin: center center;
+  transition: transform 0.1s ease-out;
+}
+
+/* Connections SVG */
+.gallery-connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gallery-connections line {
+  stroke: url(#connectionGradient);
+  stroke-width: 1.5;
+  stroke-opacity: 0.2;
+  transition: all var(--transition-normal);
+}
+
+.gallery-connections line.highlighted {
+  stroke: var(--color-primary);
+  stroke-width: 2;
+  stroke-opacity: 0.6;
+}
+
+/* Gradient definition */
+.gallery-connections defs {
+  display: none;
+}
+
+/* Gallery Node */
+.gallery-node {
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.gallery-node:hover {
+  z-index: 3;
+}
+
+.gallery-node-inner {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid transparent;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  box-shadow: 
+    0 0 0 3px rgba(0, 166, 126, 0.3),
+    0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all var(--transition-normal);
+}
+
+.gallery-node-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+.gallery-node:hover .gallery-node-inner {
+  transform: scale(1.08);
+  box-shadow: 
+    0 0 0 5px rgba(0, 166, 126, 0.5),
+    0 20px 40px rgba(0, 166, 126, 0.3);
+}
+
+.gallery-node-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: rgba(26, 26, 46, 0.5);
+}
+
+/* Optimized Water Wave Floating Animation */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(6px, -10px);
+  }
+  50% {
+    transform: translate(-4px, 8px);
+  }
+  75% {
+    transform: translate(-8px, -4px);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(5px, 10px);
+  }
+  66% {
+    transform: translate(-6px, -8px);
+  }
+}
+
+@keyframes floatMedium {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-10px, -6px);
+  }
+  40% {
+    transform: translate(12px, 4px);
+  }
+  60% {
+    transform: translate(-4px, 10px);
+  }
+  80% {
+    transform: translate(6px, -8px);
+  }
+}
+
+/* Different animation speeds */
+.gallery-node.anim-1 {
+  animation: floatGentle 12s ease-in-out infinite;
+}
+
+.gallery-node.anim-2 {
+  animation: floatSlow 15s ease-in-out infinite;
+}
+
+.gallery-node.anim-3 {
+  animation: floatMedium 10s ease-in-out infinite;
+}
+
+.gallery-node.anim-4 {
+  animation: floatGentle 14s ease-in-out infinite 2s;
+}
+
+.gallery-node.anim-5 {
+  animation: floatSlow 18s ease-in-out infinite 1s;
+}
+
+/* Hover: pause animation with smooth transition */
+.gallery-node:hover .gallery-node-inner {
+  animation-play-state: paused !important;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Node Info Tooltip */
+.node-tooltip {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: rgba(26, 26, 46, 0.95);
+  color: var(--color-text);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  box-shadow: 
+    var(--shadow-md),
+    0 0 20px rgba(0, 166, 126, 0.2);
+  z-index: 4;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gallery-node:hover .node-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Modal */
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(5px);
+}
+
+.gallery-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  background-color: rgba(26, 26, 46, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: var(--text-3xl);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 2001;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.modal-close:hover {
+  background-color: var(--color-primary);
+  transform: rotate(90deg);
+}
+
+.modal-image {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: var(--radius-lg);
+  box-shadow: 
+    var(--shadow-xl),
+    0 0 60px rgba(0, 166, 126, 0.3);
+  cursor: zoom-out;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-info {
+  position: absolute;
+  bottom: var(--spacing-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(26, 26, 46, 0.95);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  max-width: 500px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.modal-title {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--text-xl);
+}
+
+.modal-description {
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* Boundary Indicator */
+.boundary-indicator {
+  position: absolute;
+  bottom: var(--spacing-md);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(26, 26, 46, 0.8);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gallery-map-wrapper {
+    height: 400px;
+  }
+
+  .gallery-node-inner {
+    width: 100px;
+    height: 100px;
+  }
+
+  .modal-info {
+    width: 90%;
+    padding: var(--spacing-md);
+  }
+
+  .modal-title {
+    font-size: var(--text-lg);
+  }
+}

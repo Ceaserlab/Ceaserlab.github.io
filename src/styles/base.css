@@ -1,0 +1,137 @@
+/**
+ * Base Styles
+ * 基础样式重置
+ */
+
+/* CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-weight: 300; /* 更轻的字重，更优雅 */
+  letter-spacing: 0.01em; /* 微调字间距 */
+  transition: background-color var(--transition-normal),
+              color var(--transition-normal);
+}
+
+/* 文本样式 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400; /* 更轻的字重 */
+  line-height: var(--leading-tight);
+  margin-bottom: var(--spacing-md);
+}
+
+h1 { font-size: var(--text-5xl); font-weight: 600; }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-3xl); }
+h4 { font-size: var(--text-2xl); }
+h5 { font-size: var(--text-xl); }
+h6 { font-size: var(--text-lg); }
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* 列表 */
+ul, ol {
+  margin-bottom: var(--spacing-md);
+  padding-inline-start: var(--spacing-lg);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* 代码 */
+code, pre {
+  font-family: var(--font-mono);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-sm);
+}
+
+code {
+  padding: 0.125rem 0.25rem;
+  font-size: 0.875em;
+}
+
+pre {
+  padding: var(--spacing-md);
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  font-size: inherit;
+}
+
+/* 图片 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 表单元素 */
+input, textarea, select, button {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* 选中文本 */
+::selection {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}

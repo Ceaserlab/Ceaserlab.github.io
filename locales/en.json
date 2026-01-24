@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "Home",
+    "history": "History",
+    "github": "GitHub",
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "toggle": "Toggle Theme"
+    },
+    "language": "Language"
+  },
+  "hero": {
+    "name": "Ceaserzhao",
+    "intro1": "Here, inspiration no longer wanders",
+    "intro2": "Strictly speaking, I belong to Gen A, but I prefer to call myself Gen Z, or Gen TS (a concept I created myself).",
+    "intro3": "I learn many things simultaneously.",
+    "intro4": "Singapore advocates for PI-shaped talents (broad knowledge base with two areas of expertise). Haha, but I hope to become an RT (Roman TWO). In fact, I haven't figured out the exact definition of RT talents, but the bottom of Roman Two is connected, which might be the boundary between chaos and order, haha."
+  },
+  "motto1": {
+    "title": "Motto",
+    "content": "I know the singularity won't descend — it's hidden in my past. I believe I can transcend my current neorowprine and examine the game I'm in from a spectator's perspective. I will tell my story to the world."
+  },
+  "organization": {
+    "title": "My Organizations",
+    "oasis": {
+      "name": "Oasis Company",
+      "description": "Founded in 6th grade, it was just a pretend game back then (but it still is now)",
+      "github": "https://github.com/Oasis-Company",
+      "studios": {
+        "frontend": "Oasis Front-End Studio",
+        "android": "Oasis Android App",
+        "foto": "Oasis FotoGraf",
+        "archives": "Oasis Company Archives",
+        "press": "Oasis Press"
+      }
+    },
+    "idiotz": {
+      "name": "3idiotz",
+      "description": "Named after the Bollywood movie 3 Idiots (me and two Indian friends)",
+      "github": "https://github.com/3idiotz"
+    }
+  },
+  "facts": {
+    "title": "More Facts About Me",
+    "fields": "Fields I Explore",
+    "tools": "Tools / Programming Languages / Systems I Use",
+    "languages": "Languages I Speak",
+    "music": "My Top 5 Singers"
+  },
+  "projects": {
+    "title": "My Projects (Doing)",
+    "urconomy": {
+      "name": "Urconomy",
+      "description": "A book I'm writing about economics, sociology, AI, and politics. Started writing in January 2025, expected to complete in mid-2026. The book has 9 chapters. If it helps you, that would be my greatest honor.",
+      "github": "https://github.com/zbbsdsb/Urconomy"
+    },
+    "wocon": {
+      "name": "Wocon",
+      "description": "A travel app that helps you find your travel companions. Whether it's the bustling streets of Manhattan or the end of the world, Punta Arenas, you might find that destined person. Web version is now live. Windows, Android, and iOS versions coming soon.",
+      "website": "https://wocon.pages.dev",
+      "slogan": "Experience what you've never imagined, start here."
+    },
+    "oermos": {
+      "name": "Oermos",
+      "description": "An email app custom-built for Oasis Company",
+      "github": "TBD"
+    },
+    "apsuck": {
+      "name": "APSUCK",
+      "description": "Helps AP students access quality materials and online practice, mainly for AP CSA and AP Calculus BC. FIVE FIVE FIVE!!!!!!!!!!!!!!!",
+      "github": "TBD"
+    },
+    "biosurf": {
+      "name": "Biosurf",
+      "description": "A browser custom-built for machines",
+      "github": "TBD"
+    }
+  },
+  "motto2": {
+    "content": "McDonald's conquered yellow, Coca-Cola conquered red. May you and I conquer blue-green together. I call it Yka."
+  },
+  "timeline": {
+    "title": "Timeline",
+    "items": [
+      {
+        "date": "2021.11",
+        "event": "I founded Oasis Company"
+      },
+      {
+        "date": "2021.12",
+        "event": "natwd became my brother"
+      },
+      {
+        "date": "2023.10",
+        "event": "qolar bear became my brother"
+      },
+      {
+        "date": "2023.11",
+        "event": "zhang lixing became my brother"
+      },
+      {
+        "date": "2024.8",
+        "event": "comet became my brother"
+      },
+      {
+        "date": "2025.1",
+        "event": "Started writing \"Urconomy\""
+      },
+      {
+        "date": "2025.2",
+        "event": "\"THE origin\" was founded"
+      },
+      {
+        "date": "2025.6",
+        "event": "rudy (atix), tkm4 became my brothers"
+      },
+      {
+        "date": "2025.7",
+        "event": "Araf became my brother"
+      },
+      {
+        "date": "2025.9",
+        "event": "Entered high school"
+      },
+      {
+        "date": "2026.1.22",
+        "event": "Created this website"
+      }
+    ]
+  },
+  "gallery": {
+    "title": "Photograph",
+    "description": "Photo gallery displayed as a node map. Hover over each node to see image details."
+  },
+  "contact": {
+    "title": "Leave Something For Me",
+    "message": "Feel free to leave a message!",
+    "submit": "Send",
+    "placeholder": "Your message..."
+  },
+  "ending": {
+    "content": "Let's build the Oasisverse from here",
+    "footer": "© 2026 Oasis Company"
+  },
+  "history": {
+    "title": "Version History",
+    "current": "Current Version",
+    "select": "Select Version",
+    "view": "View",
+    "back": "Back to Home",
+    "loading": "Loading version...",
+    "noVersions": "No versions available"
+  }
+}

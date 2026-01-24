@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal website of ceaserzhao">
+  <meta name="theme-color" content="#00a67e">
+  <title>Ceaserzhao</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/styles/variables.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/layout.css">
+  <link rel="stylesheet" href="/src/styles/utilities.css">
+  <link rel="stylesheet" href="/src/components/navbar/navbar.css">
+  <link rel="stylesheet" href="/src/pages/home/home.css">
+  <link rel="stylesheet" href="/src/components/gallery/gallery.css">
+  <!-- 梦想家风格字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar (直接内联以避免 live-server 问题）-->
+  <div id="navbar-container">
+    <nav class="navbar" id="navbar">
+      <div class="navbar-content">
+        <!-- Logo -->
+        <a href="/" class="navbar-logo" data-i18n="hero.name">Ceaserzhao</a>
+
+        <!-- Navigation Links -->
+        <div class="navbar-links">
+          <a href="/" class="nav-link" data-i18n="nav.home">Home</a>
+          <div class="nav-control history-dropdown" id="history-dropdown">
+            <button class="nav-control-btn history-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="history-icon">
+                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14.5A6.5 6.5 0 1 1 8 1.5 6.5 6.5 0 0 1 0 14.5zM7.5 4.5h1v5h-1v-5zm0 6.5h1v1h-1v-1z"/>
+              </svg>
+              <span data-i18n="nav.history">History</span>
+              <svg class="chevron-icon" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M2 3L5 6L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="dropdown-menu" id="history-menu">
+              <div class="dropdown-header" data-i18n="nav.history">Version History</div>
+              <div class="version-list" id="version-dropdown-list">
+                <!-- Versions will be populated by JS -->
+              </div>
+              <a href="/history.html" class="dropdown-link" data-i18n="view-all">View All</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Controls -->
+        <div class="navbar-controls">
+          <!-- Language Switcher -->
+          <div class="nav-control" id="language-switcher">
+            <button class="nav-control-btn" aria-label="Change language">
+              <span id="current-language-flag" class="language-flag">🇺🇸</span>
+              <span id="current-language-name" class="language-name">English</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="dropdown-menu" id="language-dropdown">
+              <!-- Language options will be populated by JS -->
+            </div>
+          </div>
+
+          <!-- Theme Switcher -->
+          <button class="nav-control-btn" id="theme-toggle" aria-label="Toggle theme">
+            <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="theme-icon moon-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+
+          <!-- GitHub Link -->
+          <a href="https://github.com/Ceaserlab/Ceaserlab.github.io" class="nav-control-btn github-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.745-1.958 1.053-1.696 2.553-1.376 1.406-1.338 1.956-.32.699-1.628 1.285-1.089 1.996-1.082 1.055-.261 2.231-.868 2.735-1.648 3.439-.297.795-.88 1.488-.865 2.915-.796.99-1.76 1.408-2.855 1.408-2.014 0-3.911-1.498-7.897-5.654 0 .468.019.933.017 1.422 0 2.253-.345 1.58-.345 3.204 0 4.478.747 1.349 1.754.322.275.773.977-1.829 1.725-.347-.905-.774-1.619-1.091-2.284-.625-1.097-.877-1.917-.915-2.628-.965-1.468-1.778-.996-3.717-1.786-2.414-1.958-.931-.886-2.555-1.35-1.648-3.439-.297-.795-.88-1.488-.865-2.915-.796-.99-1.76-1.408-2.855-1.408-2.014 0-3.911 1.498-7.897 5.654 0 .468-.019.933-.017 1.422 0 2.253.345-1.58.345-3.204 0-4.478-.747-1.349-1.754-.322-.275-.773-.977 1.829-1.725.347.905.774 1.619 1.091 2.284.625 1.097.877 1.917.915 2.628.965 1.468 1.778.996 3.717 1.786 2.414 1.958.931.886 2.555 1.35 1.648 3.439.297.795.88 1.488.865 2.915.796.99 1.76 1.408 2.855 1.408 2.014 0 3.911z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Hero Section -->
+    <section class="hero-section section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-avatar">
+            <img src="/assets/images/avatar/default.JPG" alt="Ceaserzhao" class="avatar-image">
+          </div>
+          <div class="hero-text">
+            <h1 class="hero-title" data-i18n="hero.name">Ceaserzhao</h1>
+            <div class="hero-intro">
+              <p data-i18n="hero.intro1">I'm ceaserzhao, a dreamer. My mind is filled with countless wild ideas every day, and I hope one day they will become reality.</p>
+              <p data-i18n="hero.intro2">Strictly speaking, I belong to Gen A, but I prefer to call myself Gen Z, or Gen TS (a concept I created myself).</p>
+              <p data-i18n="hero.intro3">I learn many things simultaneously.</p>
+              <p data-i18n="hero.intro4">Singapore advocates for PI-shaped talents (broad knowledge base with two areas of expertise). Haha, but I hope to become an RT (Roman TWO). In fact, I haven't figured out the exact definition of RT talents, but the bottom of Roman Two is connected, which might be the boundary between chaos and order, haha.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Motto 1 -->
+    <section class="motto-section section">
+      <div class="container">
+        <div class="motto-card">
+          <p data-i18n="motto1.content">I know the singularity won't descend — it's hidden in my past. I believe I can transcend my current neorowprine and examine the game I'm in from a spectator's perspective. I will tell my story to the world.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Organization -->
+    <section class="organization-section section">
+      <div class="container">
+        <h2 data-i18n="organization.title">My Organizations</h2>
+        <div class="organizations-grid">
+          <div class="org-card">
+            <h3 data-i18n="organization.oasis.name">Oasis Company</h3>
+            <p data-i18n="organization.oasis.description">Founded in 6th grade, it was just a pretend game back then (but it still is now)</p>
+            <a href="https://github.com/Oasis-Company" target="_blank" rel="noopener noreferrer" class="org-link">GitHub</a>
+          </div>
+          <div class="org-card">
+            <h3 data-i18n="organization.idiotz.name">3idiotz</h3>
+            <p data-i18n="organization.idiotz.description">Named after the Bollywood movie 3 Idiots (me and two Indian friends)</p>
+            <a href="https://github.com/3idiotz" target="_blank" rel="noopener noreferrer" class="org-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facts -->
+    <section class="facts-section section">
+      <div class="container">
+        <h2 data-i18n="facts.title">More Facts About Me</h2>
+        <div class="facts-content">
+          <h3 data-i18n="facts.fields">Fields I Explore</h3>
+          <p>💻 Computer Graphics / Game Development, 🌐 Website / App Development, 🗃️ Databases, 🤖 Robotics, 🧠 Machine Learning, ⛓️ Web 3.0, 📐 Linear Algebra, ∫ Calculus, 📊 Statistics, 🎲 Probability, ⚛️ Physics, 💬 Linguistics, 💰 Economics, 🧘 Philosophy, 🌍 World Cultures, Modern Control Systems, 🤝 Ethics…</p>
+
+          <h3 data-i18n="facts.tools">Tools / Programming Languages / Systems I Use</h3>
+          <p><strong>🗣️ Languages:</strong> C++, Java, Python (NumPy, Pandas, Matplotlib, PyTorch, OpenCV, Pygame, TensorFlow), Rust, Go, PHP, Kotlin, HTML, CSS, JavaScript, Solidity, Markdown, Shell, Lua, Swift</p>
+          <p><strong>🔧 Tools & Platforms:</strong> MySQL, Redis, Git, 🐧 Arch Linux, 🪟 Windows, 🎨 OpenGL, 🎮 UE, 🗿 Blender, 📷 Postshot, 🏗️ Reality Capture, 📦 Gradle, 🐳 Docker, ☸️ Kubernetes, 🔢 GNU Octave, 🎯 CUDA, ✏️ Vim, 🤖 VEX Robotics, ⛓️ Web 3.0, 🖼️ NeRF, Jupyter Notebook, Google Colab, GDScript, PostgreSQL, Supabase, Cloudflare, Apifox, Playwright, Mermaid, CockroachDB, Milvus</p>
+
+          <h3 data-i18n="facts.languages">Languages I Speak</h3>
+          <p>🇨🇳 Chinese (Native), 🇺🇸 English (Fluent), 🇪🇸 Spanish (Intermediate), 🇮🇳 Hindi (Intermediate), 🇩🇪 German (Basic), 🇦🇪 Arabic (Basic)</p>
+
+          <h3 data-i18n="facts.music">My Top 5 Singers</h3>
+          <ol>
+            <li>Ed Sheeran</li>
+            <li>Bad Bunny</li>
+            <li>Drake</li>
+            <li>The Weeknd</li>
+            <li>Billie Eilish</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects-section section">
+      <div class="container">
+        <h2 data-i18n="projects.title">My Projects (Doing)</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3 data-i18n="projects.urconomy.name">Urconomy</h3>
+            <p data-i18n="projects.urconomy.description">A book I'm writing about economics, sociology, AI, and politics. Started writing in January 2025, expected to complete in mid-2026. The book has 9 chapters.</p>
+            <a href="https://github.com/zbbsdsb/Urconomy" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a>
+          </div>
+          <div class="project-card">
+            <h3 data-i18n="projects.wocon.name">Wocon</h3>
+            <p data-i18n="projects.wocon.description">A travel app that helps you find your travel companions. Web version is now live.</p>
+            <a href="https://wocon.pages.dev" target="_blank" rel="noopener noreferrer" class="project-link">Website</a>
+          </div>
+          <div class="project-card">
+            <h3 data-i18n="projects.oermos.name">Oermos</h3>
+            <p data-i18n="projects.oermos.description">An email app custom-built for Oasis Company</p>
+          </div>
+          <div class="project-card">
+            <h3 data-i18n="projects.apsuck.name">APSUCK</h3>
+            <p data-i18n="projects.apsuck.description">Helps AP students access quality materials and online practice, mainly for AP CSA and AP Calculus BC. FIVE FIVE FIVE!!!!!!!!!!!!!!!</p>
+          </div>
+          <div class="project-card">
+            <h3 data-i18n="projects.biosurf.name">Biosurf</h3>
+            <p data-i18n="projects.biosurf.description">A browser custom-built for machines</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Motto 2 -->
+    <section class="motto2-section section">
+      <div class="container">
+        <div class="motto-card motto2-card">
+          <p data-i18n="motto2.content">McDonald's conquered yellow, Coca-Cola conquered red. May you and I conquer blue-green together. I call it Yka.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline-section section">
+      <div class="container">
+        <h2 data-i18n="timeline.title">Timeline</h2>
+        <div class="timeline-container" id="timeline-container">
+          <div class="timeline-wrapper">
+            <div class="timeline-track" id="timeline-track">
+              <div class="timeline-line"></div>
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="timeline-date">2021.11</div>
+                  <div class="timeline-content" data-i18n="timeline.items.0.event">I founded Oasis Company</div>
+                </div>
+              </div>
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="timeline-date">2021.12</div>
+                  <div class="timeline-content" data-i18n="timeline.items.1.event">natwd became my brother</div>
+                </div>
+              </div>
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="timeline-date">2023.10</div>
+                  <div class="timeline-content" data-i18n="timeline.items.2.event">qolar bear became my brother</div>
+                </div>
+              </div>
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="timeline-date">2023.11</div>
+                  <div class="timeline-content" data-i18n="timeline.items.3.event">zhang lixing became my brother</div>
+                </div>
+              </div>
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="timeline-date">2024.8</div>
+                  <div class="timeline-content" data-i18n="timeline.items.4.event">comet became my brother</div>
+                </div>
+              </div>
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="timeline-date">2025.1</div>
+                  <div class="timeline-content" data-i18n="timeline.items.5.event">Started writing "Urconomy"</div>
+                </div>
+              </div>
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="timeline-date">2025.2</div>
+                  <div class="timeline-content" data-i18n="timeline.items.6.event">"THE origin" was founded</div>
+                </div>
+              </div>
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="timeline-date">2025.6</div>
+                  <div class="timeline-content" data-i18n="timeline.items.7.event">rudy (atix), tkm4 became my brothers</div>
+                </div>
+              </div>
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="timeline-date">2025.7</div>
+                  <div class="timeline-content" data-i18n="timeline.items.8.event">Araf became my brother</div>
+                </div>
+              </div>
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="timeline-date">2025.9</div>
+                  <div class="timeline-content" data-i18n="timeline.items.9.event">Entered high school</div>
+                </div>
+              </div>
+              <div class="timeline-node">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                  <div class="timeline-date">2026.1.22</div>
+                  <div class="timeline-content" data-i18n="timeline.items.10.event">Created this website</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-scroll-hint">
+          <button class="scroll-hint" id="scroll-left">←</button>
+          <button class="scroll-hint" id="scroll-right">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <div id="gallery-container"></div>
+
+    <!-- Contact -->
+    <section class="contact-section section">
+      <div class="container">
+        <h2 data-i18n="contact.title">Leave Something For Me</h2>
+        <div class="contact-form">
+          <textarea id="message-input" placeholder="Your message..." data-i18n="contact.placeholder"></textarea>
+          <button id="send-button" data-i18n="contact.submit">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ending -->
+    <section class="ending-section section">
+      <div class="container">
+        <p class="ending-text" data-i18n="ending.content">Let's build the Oasisverse from here</p>
+        <p class="footer-text" data-i18n="ending.footer">© 2026 Oasis Company</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/pages/home/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+/**
+ * CSS Variables
+ * CSS 变量定义 - 主题系统核心
+ */
+
+:root {
+  /* 主题色 - Yka (蓝绿色) */
+  --color-primary: #00a67e;
+  --color-primary-hover: #008f6b;
+  --color-secondary: #10a37f;
+
+  /* 亮色主题 (默认) */
+  --color-background: #ffffff;
+  --color-surface: #f7f7f8;
+  --color-text: #202123;
+  --color-text-secondary: #6e6e80;
+  --color-border: #e5e5e5;
+
+  /* 动画 */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* 间距 */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+
+  /* 圆角 */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* 阴影 */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+
+  /* 字体 */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Inter', 'Helvetica Neue', sans-serif;
+  --font-serif: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+  --font-mono: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+
+  /* 字号 */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+
+  /* 行高 */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* 容器宽度 */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+
+  /* 导航栏高度 */
+  --navbar-height: 64px;
+}
+
+/* 暗色主题 - 梦想家风格 */
+[data-theme='dark'] {
+  --color-background: #0d0d12;
+  --color-surface: #16161e;
+  --color-text: #f1f1f8;
+  --color-text-secondary: #b8b8c8;
+  --color-border: #2a2a3a;
+}
+
+/* RTL 支持的语言 */
+[dir='rtl'] {
+  --text-align-start: right;
+  --text-align-end: left;
+}
+
+[dir='ltr'] {
+  --text-align-start: left;
+  --text-align-end: right;
+}

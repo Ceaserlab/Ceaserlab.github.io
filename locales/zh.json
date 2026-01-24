@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "首页",
+    "history": "历史",
+    "github": "GitHub",
+    "theme": {
+      "light": "亮色",
+      "dark": "暗色",
+      "toggle": "切换主题"
+    },
+    "language": "语言"
+  },
+  "hero": {
+    "name": "Ceaserzhao",
+    "intro1": "在这里，灵感不再漂泊",
+    "intro2": "严格上来说，我算是 A 世代，但是我更喜欢把自己称为 Z 世代，或是 TS 世代（这是一个我自创的概念）。",
+    "intro3": "我会同时学很多东西。",
+    "intro4": "新加坡提倡人们称为 PI 型人才（即涉猎广泛且有两个精通的领域）。哈哈，而我希望我成为 RT（Roman TWO）。事实上，我都没有搞清楚 RT 人才的准确定义，但 Roman Two 的底部是连起来的，这或许就是混沌与秩序的边界，哈哈。"
+  },
+  "motto1": {
+    "title": "座右铭",
+    "content": "我知道奇点并不会降临——它隐藏在我的过去。我相信我可以超越我所处的 neorowprine，以旁观者的视角来审视我所处的游戏。我会向世界讲述我的故事。"
+  },
+  "organization": {
+    "title": "我的组织",
+    "oasis": {
+      "name": "Oasis Company",
+      "description": "创办于六年级，当时他还只是一个过家家游戏（不过现在依然是）",
+      "github": "https://github.com/Oasis-Company",
+      "studios": {
+        "frontend": "Oasis 前端工作室",
+        "android": "Oasis Android 应用",
+        "foto": "Oasis FotoGraf",
+        "archives": "Oasis 公司档案",
+        "press": "Oasis Press"
+      }
+    },
+    "idiotz": {
+      "name": "3idiotz",
+      "description": "这个名字来源于宝莱坞电影 3 Idiots（即我和两个印度哥们）",
+      "github": "https://github.com/3idiotz"
+    }
+  },
+  "facts": {
+    "title": "更多关于我的事实",
+    "fields": "我探索的领域",
+    "tools": "我使用的工具 / 编程语言 / 系统",
+    "languages": "我会说的语言",
+    "music": "我最喜欢的五位歌手"
+  },
+  "projects": {
+    "title": "我的项目（进行中）",
+    "urconomy": {
+      "name": "Urconomy",
+      "description": "一本我写的书，关于经济学、社会学、AI 和政治。我从 2025 年一月开始写这本书，预计会在 2026 年的中旬完成。全书包括九个章节，如果他能帮到你，那将是我最大的荣幸。",
+      "github": "https://github.com/zbbsdsb/Urconomy"
+    },
+    "wocon": {
+      "name": "Wocon",
+      "description": "一款旅行软件，帮你找到你的旅行伙伴。无论是曼哈顿繁华的街区，还是世界的尽头 Punta Arenas，或许你都可以找到那个缘分之人。网页版现已上线，日后也会上线 Windows、安卓和 iOS 版本的 Wocon。",
+      "website": "https://wocon.pages.dev",
+      "slogan": "经历你未曾所想，从这里开始。"
+    },
+    "oermos": {
+      "name": "Oermos",
+      "description": "一个为 Oasis Company 量身定做的邮箱应用",
+      "github": "待定"
+    },
+    "apsuck": {
+      "name": "APSUCK",
+      "description": "帮助 AP 考生获得优质的资料和线上练习，主要针对 AP CSA 和 AP 微积分 BC。FIVE FIVE FIVE!!!!!!!!!!!!!!!",
+      "github": "待定"
+    },
+    "biosurf": {
+      "name": "Biosurf",
+      "description": "一个为机器量身定做的浏览器",
+      "github": "待定"
+    }
+  },
+  "motto2": {
+    "content": "麦当劳占领了黄色，可口可乐占领了红色。愿你与我一起征服蓝绿色，我把它叫 Yka。"
+  },
+  "timeline": {
+    "title": "时间线",
+    "items": [
+      {
+        "date": "2021.11",
+        "event": "我创立了 Oasis Company"
+      },
+      {
+        "date": "2021.12",
+        "event": "natwd 成为了我的兄弟"
+      },
+      {
+        "date": "2023.10",
+        "event": "qolar bear 成为了我的兄弟"
+      },
+      {
+        "date": "2023.11",
+        "event": "zhang lixing 成为了我的兄弟"
+      },
+      {
+        "date": "2024.8",
+        "event": "comet 成为了我的兄弟"
+      },
+      {
+        "date": "2025.1",
+        "event": "开始写《Urconomy》"
+      },
+      {
+        "date": "2025.2",
+        "event": "\"THE origin\" 成立"
+      },
+      {
+        "date": "2025.6",
+        "event": "rudy (atix)、tkm4 成为了我的兄弟"
+      },
+      {
+        "date": "2025.7",
+        "event": "Araf 成为了我的兄弟"
+      },
+      {
+        "date": "2025.9",
+        "event": "进入高中"
+      },
+      {
+        "date": "2026.1.22",
+        "event": "创建了这个网页"
+      }
+    ]
+  },
+  "gallery": {
+    "title": "相册",
+    "description": "相册用节点地图表示，每个节点都为一个地图，当鼠标 hover 时，显示图片详情。"
+  },
+  "contact": {
+    "title": "留点什么给我",
+    "message": "欢迎留言！",
+    "submit": "发送",
+    "placeholder": "你的消息..."
+  },
+  "ending": {
+    "content": "让我们从这里开始构建 Oasisverse",
+    "footer": "© 2026 Oasis Company"
+  },
+  "history": {
+    "title": "版本历史",
+    "current": "当前版本",
+    "select": "选择版本",
+    "view": "查看",
+    "back": "返回首页",
+    "loading": "正在加载版本...",
+    "noVersions": "暂无可用版本"
+  }
+}

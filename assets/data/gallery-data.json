@@ -1,0 +1,28 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "src": "/assets/images/gallery/At McDonald's with my brothers.JPG",
+      "title": "At McDonald's with my brothers",
+      "description": "A fun day with my brothers at McDonald's"
+    },
+    {
+      "id": 2,
+      "src": "/assets/images/gallery/my desktop in school.JPG",
+      "title": "My desktop in school",
+      "description": "My workspace setup in school"
+    },
+    {
+      "id": 3,
+      "src": "/assets/images/gallery/qolar bear.JPG",
+      "title": "qolar bear",
+      "description": "A photo with qolar bear"
+    },
+    {
+      "id": 4,
+      "src": "/assets/images/gallery/The Overpass in Middle School.JPG",
+      "title": "The Overpass in Middle School",
+      "description": "Memories from middle school days"
+    }
+  ]
+}

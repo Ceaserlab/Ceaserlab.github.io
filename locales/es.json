@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "history": "Historia",
+    "github": "GitHub",
+    "theme": {
+      "light": "Claro",
+      "dark": "Oscuro",
+      "toggle": "Cambiar Tema"
+    },
+    "language": "Idioma"
+  },
+  "hero": {
+    "name": "Ceaserzhao",
+    "intro1": "Soy ceaserzhao, un soñador. Mi mente está llena de innumerables ideas salvajes todos los días, y espero que algún día se conviertan en realidad.",
+    "intro2": "Estrictamente hablando, pertenezco a la Generación A, pero prefiero llamarme Generación Z, o Generación TS (un concepto que creé yo mismo).",
+    "intro3": "Aprendo muchas cosas simultáneamente.",
+    "intro4": "Singapur aboga por los talentos con forma de PI (base de conocimiento amplio con dos áreas de especialización). Jaja, pero espero convertirme en un RT (Roman TWO). De hecho, no he descubierto la definición exacta de los talentos RT, pero la parte inferior de Roman Two está conectada, lo que podría ser el límite entre el caos y el orden, jaja."
+  },
+  "motto1": {
+    "title": "Lema",
+    "content": "Sé que la singularidad no descenderá — está oculta en mi pasado. Creo que puedo trascender mi neorowprine actual y examinar el juego en el que estoy desde la perspectiva de un espectador. Le contaré mi historia al mundo."
+  },
+  "organization": {
+    "title": "Mis Organizaciones",
+    "oasis": {
+      "name": "Oasis Company",
+      "description": "Fundada en sexto grado, era solo un juego de fingir en ese entonces (pero todavía lo es ahora)",
+      "github": "https://github.com/Oasis-Company",
+      "studios": {
+        "frontend": "Oasis Front-End Studio",
+        "android": "Oasis Android App",
+        "foto": "Oasis FotoGraf",
+        "archives": "Oasis Company Archives",
+        "press": "Oasis Press"
+      }
+    },
+    "idiotz": {
+      "name": "3idiotz",
+      "description": "Nombrado después de la película de Bollywood 3 Idiots (yo y dos amigos indios)",
+      "github": "https://github.com/3idiotz"
+    }
+  },
+  "facts": {
+    "title": "Más Datos Sobre Mí",
+    "fields": "Campos Que Exploro",
+    "tools": "Herramientas / Lenguajes de Programación / Sistemas Que Uso",
+    "languages": "Idiomas Que Hablo",
+    "music": "Mis 5 Cantantes Favoritos"
+  },
+  "projects": {
+    "title": "Mis Proyectos (En Curso)",
+    "urconomy": {
+      "name": "Urconomy",
+      "description": "Un libro que estoy escribiendo sobre economía, sociología, IA y política. Comencé a escribirlo en enero de 2025, se espera completarlo a mediados de 2026. El libro tiene 9 capítulos. Si te ayuda, sería mi mayor honor.",
+      "github": "https://github.com/zbbsdsb/Urconomy"
+    },
+    "wocon": {
+      "name": "Wocon",
+      "description": "Una aplicación de viaje que te ayuda a encontrar compañeros de viaje. Ya sea las bulliciosas calles de Manhattan o el fin del mundo, Punta Arenas, quizás encuentres a esa persona destinada. La versión web ya está en línea. Las versiones de Windows, Android e iOS llegarán pronto.",
+      "website": "https://wocon.pages.dev",
+      "slogan": "Experimenta lo que nunca imaginaste, comienza aquí."
+    },
+    "oermos": {
+      "name": "Oermos",
+      "description": "Una aplicación de correo personalizada para Oasis Company",
+      "github": "Por determinar"
+    },
+    "apsuck": {
+      "name": "APSUCK",
+      "description": "Ayuda a los estudiantes de AP a acceder a materiales de calidad y práctica en línea, principalmente para AP CSA y AP Calculus BC. FIVE FIVE FIVE!!!!!!!!!!!!!!!",
+      "github": "Por determinar"
+    },
+    "biosurf": {
+      "name": "Biosurf",
+      "description": "Un navegador personalizado para máquinas",
+      "github": "Por determinar"
+    }
+  },
+  "motto2": {
+    "content": "McDonald's conquistó el amarillo, Coca-Cola conquistó el rojo. Que tú y yo conquistemos el azul-verde juntos. Lo llamo Yka."
+  },
+  "timeline": {
+    "title": "Línea de Tiempo",
+    "items": [
+      {
+        "date": "2021.11",
+        "event": "Fundé Oasis Company"
+      },
+      {
+        "date": "2021.12",
+        "event": "natwd se convirtió en mi hermano"
+      },
+      {
+        "date": "2023.10",
+        "event": "qolar bear se convirtió en mi hermano"
+      },
+      {
+        "date": "2023.11",
+        "event": "zhang lixing se convirtió en mi hermano"
+      },
+      {
+        "date": "2024.8",
+        "event": "comet se convirtió en mi hermano"
+      },
+      {
+        "date": "2025.1",
+        "event": "Comencé a escribir \"Urconomy\""
+      },
+      {
+        "date": "2025.2",
+        "event": "\"THE origin\" fue fundado"
+      },
+      {
+        "date": "2025.6",
+        "event": "rudy (atix), tkm4 se convirtieron en mis hermanos"
+      },
+      {
+        "date": "2025.7",
+        "event": "Araf se convirtió en mi hermano"
+      },
+      {
+        "date": "2025.9",
+        "event": "Entré en la escuela secundaria"
+      },
+      {
+        "date": "2026.1.22",
+        "event": "Creé este sitio web"
+      }
+    ]
+  },
+  "gallery": {
+    "title": "Fotografía",
+    "description": "Galería de fotos mostrada como un mapa de nodos. Pasa el cursor sobre cada nodo para ver detalles de la imagen."
+  },
+  "contact": {
+    "title": "Déjame Algo",
+    "message": "¡Siéntete libre de dejar un mensaje!",
+    "submit": "Enviar",
+    "placeholder": "Tu mensaje..."
+  },
+  "ending": {
+    "content": "Construyamos el Oasisverse desde aquí",
+    "footer": "© 2026 Oasis Company"
+  },
+  "history": {
+    "title": "Historial de Versiones",
+    "current": "Versión Actual",
+    "select": "Seleccionar Versión",
+    "view": "Ver",
+    "back": "Volver al Inicio",
+    "loading": "Cargando versión...",
+    "noVersions": "No hay versiones disponibles"
+  }
+}
