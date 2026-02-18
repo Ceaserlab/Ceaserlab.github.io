@@ -124,8 +124,16 @@
         "event": "Entré en la escuela secundaria"
       },
       {
+        "date": "2025.11",
+        "event": "Comencé a desarrollar Wocon"
+      },
+      {
         "date": "2026.1.22",
         "event": "Creé este sitio web"
+      },
+      {
+        "date": "2026.2.10",
+        "event": "Comencé a desarrollar AMAR ENGINE"
       }
     ]
   },
