@@ -124,8 +124,16 @@
         "event": "Entered high school"
       },
       {
+        "date": "2025.11",
+        "event": "Started developing Wocon"
+      },
+      {
         "date": "2026.1.22",
         "event": "Created this website"
+      },
+      {
+        "date": "2026.2.10",
+        "event": "Started developing AMAR ENGINE"
       }
     ]
   },

@@ -1,14 +1,14 @@
 /**
  * Layout Styles
- * 布局样式
+ * Swiss Style 布局样式
  */
 
-/* 容器 */
+/* 容器 - Swiss Style 网格系统 */
 .container {
   width: 100%;
   max-width: var(--container-lg);
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
+  padding: 0 var(--spacing-xl);
 }
 
 .container-sm {
@@ -69,8 +69,9 @@
 .gap-md { gap: var(--spacing-md); }
 .gap-lg { gap: var(--spacing-lg); }
 .gap-xl { gap: var(--spacing-xl); }
+.gap-2xl { gap: var(--spacing-2xl); }
 
-/* Grid 布局 */
+/* Grid 布局 - Swiss Style 几何网格 */
 .grid {
   display: grid;
 }
@@ -81,9 +82,18 @@
 .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 
-/* 区域布局 */
+/* 区域布局 - Swiss Style 间距 */
 .section {
   padding: var(--spacing-3xl) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section:first-child {
+  border-top: none;
+}
+
+.section:last-child {
+  border-bottom: none;
 }
 
 .section-sm {
@@ -94,7 +104,7 @@
   padding: var(--spacing-3xl) 0;
 }
 
-/* 导航栏布局 */
+/* 导航栏布局 - Swiss Style */
 .navbar {
   position: fixed;
   top: 0;
@@ -102,7 +112,7 @@
   right: 0;
   height: var(--navbar-height);
   background-color: var(--color-background);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 2px solid var(--color-primary);
   z-index: 1000;
   transition: background-color var(--transition-normal),
               border-color var(--transition-normal);
@@ -115,7 +125,7 @@
   height: 100%;
   max-width: var(--container-xl);
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
+  padding: 0 var(--spacing-xl);
 }
 
 /* 主内容区域 */
@@ -127,7 +137,7 @@
 /* 响应式布局 */
 @media (max-width: 768px) {
   .container, .container-md, .container-xl, .container-2xl {
-    padding: 0 var(--spacing-md);
+    padding: 0 var(--spacing-lg);
   }
 
   .grid-cols-2, .grid-cols-3, .grid-cols-4, .grid-cols-6 {
@@ -136,5 +146,9 @@
 
   .section, .section-lg {
     padding: var(--spacing-2xl) 0;
+  }
+
+  .navbar-content {
+    padding: 0 var(--spacing-lg);
   }
 }
