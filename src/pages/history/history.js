@@ -164,10 +164,100 @@ class HistoryPage {
     if (version.id === versionConfig.currentVersion.id) {
       window.location.href = '/';
     } else {
-      // 这里可以实现版本切换逻辑
-      // 目前只是提示
-      alert(`Switching to version ${version.id}...\n\nThis is a demo. Actual version switching will be implemented with Git history.`);
+      // 实现版本切换逻辑
+      this.showVersionTransition(version);
     }
+  }
+
+  /**
+   * 显示版本切换过渡动画
+   */
+  showVersionTransition(version) {
+    // 创建过渡动画元素
+    const transitionElement = document.createElement('div');
+    transitionElement.className = 'version-transition';
+    transitionElement.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      pointer-events: none;
+      overflow: hidden;
+    `;
+
+    // 创建左侧线条
+    const lineLeft = document.createElement('div');
+    lineLeft.style.cssText = `
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 50%;
+      height: 100%;
+      background-color: ${versionConfig.transition.colors.lineLeft};
+      transition: transform ${versionConfig.transition.animationDuration}ms ease-in-out;
+    `;
+
+    // 创建右侧线条
+    const lineRight = document.createElement('div');
+    lineRight.style.cssText = `
+      position: absolute;
+      top: 0;
+      right: -50%;
+      width: 50%;
+      height: 100%;
+      background-color: ${versionConfig.transition.colors.lineRight};
+      transition: transform ${versionConfig.transition.animationDuration}ms ease-in-out;
+    `;
+
+    // 创建品牌文字
+    const brandText = document.createElement('div');
+    brandText.style.cssText = `
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      font-weight: bold;
+      color: ${versionConfig.transition.colors.text};
+      opacity: 0;
+      transition: opacity ${versionConfig.transition.animationDuration / 2}ms ease-in-out;
+      transition-delay: ${versionConfig.transition.animationDuration / 2}ms;
+    `;
+    brandText.textContent = 'ceaserlab';
+
+    // 添加元素到页面
+    transitionElement.appendChild(lineLeft);
+    transitionElement.appendChild(lineRight);
+    transitionElement.appendChild(brandText);
+    document.body.appendChild(transitionElement);
+
+    // 触发动画
+    setTimeout(() => {
+      lineLeft.style.transform = 'translateX(100%)';
+      lineRight.style.transform = 'translateX(-100%)';
+      
+      // 显示品牌文字
+      setTimeout(() => {
+        brandText.style.opacity = '1';
+        
+        // 隐藏所有元素并跳转到版本页面
+        setTimeout(() => {
+          brandText.style.opacity = '0';
+          
+          setTimeout(() => {
+            lineLeft.style.transform = 'translateX(200%)';
+            lineRight.style.transform = 'translateX(-200%)';
+            
+            // 跳转到版本页面
+            setTimeout(() => {
+              window.location.href = `/?v=${version.id}`;
+            }, versionConfig.transition.animationDuration / 2);
+          }, versionConfig.transition.animationDuration / 2);
+        }, versionConfig.transition.animationDuration / 2);
+      }, versionConfig.transition.animationDuration);
+    }, 100);
   }
 }
 
