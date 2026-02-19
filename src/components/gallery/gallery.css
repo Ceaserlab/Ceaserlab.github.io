@@ -203,4 +203,17 @@
   }
   
   .gallery-section h2 {
-    font-size: 1.75rem
+    font-size: 1.75rem;
+  }
+  
+  .gallery-description {
+    margin-bottom: 48px;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .gallery-item-image {
+    height
