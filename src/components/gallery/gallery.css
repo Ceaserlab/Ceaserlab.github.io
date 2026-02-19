@@ -278,4 +278,16 @@
   left: 8px;
   background-color: rgba(0, 166, 126, 0.9);
   color: white;
-  padding: 4px 8
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.gallery-item:hover .gallery-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
