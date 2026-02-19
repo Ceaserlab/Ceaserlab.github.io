@@ -78,6 +78,9 @@ class HomePage {
     // 这里可以根据需要实现更复杂的版本内容切换逻辑
     console.log(`Loading version ${version.id}: ${version.name}`);
     
+    // 加载版本特定的CSS
+    this.loadVersionSpecificCSS(version.id);
+    
     // 示例：根据版本ID修改页面内容
     if (version.id === '0.9.0') {
       // Beta版本的特殊处理
@@ -86,6 +89,42 @@ class HomePage {
       // 初始版本的处理
       this.modifyInitialVersionContent();
     }
+  }
+
+  /**
+   * 加载版本特定的CSS
+   */
+  loadVersionSpecificCSS(versionId) {
+    // 移除现有的版本特定CSS
+    this.removeVersionSpecificCSS();
+    
+    // 根据版本ID加载不同的CSS
+    if (versionId === '1.0.0') {
+      // 1.0.0版本使用原始样式
+      this.loadCSS('/src/styles/versions/1.0.0.css');
+    } else if (versionId === '0.9.0') {
+      // 0.9.0版本使用beta样式
+      this.loadCSS('/src/styles/versions/0.9.0.css');
+    }
+  }
+
+  /**
+   * 加载CSS文件
+   */
+  loadCSS(href) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    link.className = 'version-specific-css';
+    document.head.appendChild(link);
+  }
+
+  /**
+   * 移除版本特定的CSS
+   */
+  removeVersionSpecificCSS() {
+    const existingLinks = document.querySelectorAll('.version-specific-css');
+    existingLinks.forEach(link => link.remove());
   }
 
   /**
@@ -122,6 +161,61 @@ class HomePage {
   modifyInitialVersionContent() {
     // 修改页面标题
     document.title = 'Ceaserzhao - Initial Release';
+    
+    // 删除不属于1.0.0版本的内容
+    this.removeNonVersionContent('1.0.0');
+  }
+
+  /**
+   * 删除不属于指定版本的内容
+   */
+  removeNonVersionContent(versionId) {
+    if (versionId === '1.0.0') {
+      // 删除时间线中2025年11月及以后的事件（这些是1.0.1版本添加的）
+      this.removeFutureTimelineEvents('2025.11');
+      
+      // 删除可能不属于1.0.0版本的其他内容
+      this.removeNonVersionSections();
+    }
+  }
+
+  /**
+   * 删除时间线中未来的事件
+   */
+  removeFutureTimelineEvents(cutoffDate) {
+    const timelineNodes = document.querySelectorAll('.timeline-node');
+    timelineNodes.forEach(node => {
+      const dateElement = node.querySelector('.timeline-date');
+      if (dateElement) {
+        const date = dateElement.textContent;
+        if (this.isDateAfter(date, cutoffDate)) {
+          node.remove();
+        }
+      }
+    });
+  }
+
+  /**
+   * 检查日期是否在 cutoffDate 之后
+   */
+  isDateAfter(date, cutoffDate) {
+    // 简单的日期比较逻辑
+    const dateParts = date.split('.').map(Number);
+    const cutoffParts = cutoffDate.split('.').map(Number);
+    
+    if (dateParts[0] > cutoffParts[0]) return true;
+    if (dateParts[0] === cutoffParts[0] && dateParts[1] > cutoffParts[1]) return true;
+    if (dateParts[0] === cutoffParts[0] && dateParts[1] === cutoffParts[1] && dateParts[2] > cutoffParts[2]) return true;
+    
+    return false;
+  }
+
+  /**
+   * 删除不属于当前版本的部分
+   */
+  removeNonVersionSections() {
+    // 这里可以添加删除其他不属于1.0.0版本的部分的逻辑
+    console.log('Removing non-1.0.0 version content');
   }
 
   /**
