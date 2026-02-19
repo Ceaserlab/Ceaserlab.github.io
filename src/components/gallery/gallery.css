@@ -271,4 +271,11 @@
   animation: fadeInUp 0.6s ease-out;
 }
 
-/* Tooltip
+/* Tooltip */
+.gallery-tooltip {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background-color: rgba(0, 166, 126, 0.9);
+  color: white;
+  padding: 4px 8
