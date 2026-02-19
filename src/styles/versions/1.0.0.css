@@ -61,3 +61,8 @@ a::after {
 /* 列表样式 */
 ul, ol {
   margin-bottom: var(--spacing-md);
+  padding-inline-start: var(--spacing-lg);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
