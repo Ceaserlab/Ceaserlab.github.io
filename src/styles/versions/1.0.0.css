@@ -107,4 +107,17 @@ img {
 }
 
 .navbar-logo {
-  font
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.nav-link {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color:
