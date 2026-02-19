@@ -234,4 +234,13 @@
 }
 
 @media (max-width: 480px) {
-  .gallery
+  .gallery-section {
+    padding: 48px 0;
+  }
+  
+  .gallery-item-image {
+    height: 150px;
+  }
+  
+  .gallery-item-info {
+    padding: 12px;
