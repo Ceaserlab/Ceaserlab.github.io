@@ -226,3 +226,12 @@
   
   .modal-close {
     top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery
