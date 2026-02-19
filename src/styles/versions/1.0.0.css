@@ -131,3 +131,10 @@ img {
 /* 按钮样式 */
 .nav-control-btn {
   padding: var(--spacing-sm);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast);
