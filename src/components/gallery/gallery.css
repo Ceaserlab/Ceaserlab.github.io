@@ -194,3 +194,13 @@
   
   .gallery-item-info {
     padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-section {
+    padding: 64px 0;
+  }
+  
+  .gallery-section h2 {
+    font-size: 1.75rem
