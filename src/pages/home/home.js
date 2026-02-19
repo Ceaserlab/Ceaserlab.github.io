@@ -6,6 +6,7 @@
 import { i18n } from '../../core/i18n/i18n.js';
 import { Navbar } from '../../components/navbar/navbar.js';
 import { Gallery } from '../../components/gallery/gallery.js';
+import { versionConfig } from '../../config/version.config.js';
 
 class HomePage {
   constructor() {
@@ -16,6 +17,9 @@ class HomePage {
    * 初始化首页
    */
   async init() {
+    // 检查版本参数
+    this.checkVersionParam();
+
     // 初始化导航栏（直接初始化，不需要加载 HTML）
     new Navbar();
 
@@ -27,6 +31,97 @@ class HomePage {
 
     // 初始化联系表单
     this.initContactForm();
+  }
+
+  /**
+   * 检查版本参数
+   */
+  checkVersionParam() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const versionId = urlParams.get('v');
+
+    if (versionId) {
+      const version = versionConfig.versions.find(v => v.id === versionId);
+      if (version) {
+        this.showVersionWatermark(version);
+        this.loadVersionContent(version);
+      }
+    }
+  }
+
+  /**
+   * 显示版本水印
+   */
+  showVersionWatermark(version) {
+    const watermark = document.createElement('div');
+    watermark.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: rgba(0, 166, 126, 0.9);
+      color: white;
+      padding: 12px 24px;
+      font-weight: bold;
+      font-size: 14px;
+      z-index: 9998;
+      border-left: 4px solid white;
+    `;
+    watermark.textContent = `Version ${version.id}`;
+    document.body.appendChild(watermark);
+  }
+
+  /**
+   * 加载版本内容
+   */
+  loadVersionContent(version) {
+    // 根据版本ID加载不同的内容
+    // 这里可以根据需要实现更复杂的版本内容切换逻辑
+    console.log(`Loading version ${version.id}: ${version.name}`);
+    
+    // 示例：根据版本ID修改页面内容
+    if (version.id === '0.9.0') {
+      // Beta版本的特殊处理
+      this.modifyBetaVersionContent();
+    } else if (version.id === '1.0.0') {
+      // 初始版本的处理
+      this.modifyInitialVersionContent();
+    }
+  }
+
+  /**
+   * 修改Beta版本内容
+   */
+  modifyBetaVersionContent() {
+    // 修改页面标题
+    document.title = 'Ceaserzhao - Beta Version';
+    
+    // 在hero section添加Beta标识
+    const heroSection = document.querySelector('.hero-section');
+    if (heroSection) {
+      const betaBadge = document.createElement('div');
+      betaBadge.style.cssText = `
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        background-color: #ff6b6b;
+        color: white;
+        padding: 8px 16px;
+        font-weight: bold;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      `;
+      betaBadge.textContent = 'Beta Version';
+      heroSection.appendChild(betaBadge);
+    }
+  }
+
+  /**
+   * 修改初始版本内容
+   */
+  modifyInitialVersionContent() {
+    // 修改页面标题
+    document.title = 'Ceaserzhao - Initial Release';
   }
 
   /**
