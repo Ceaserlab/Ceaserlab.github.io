@@ -35,3 +35,14 @@ h4 { font-size: var(--text-2xl); }
 h5 { font-size: var(--text-xl); }
 h6 { font-size: var(--text-lg); }
 
+/* 段落样式 */
+p {
+  margin-bottom: var(--spacing-md);
+  max-width: none;
+}
+
+/* 链接样式 */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color
