@@ -216,4 +216,13 @@
   }
   
   .gallery-item-image {
-    height
+    height: 180px;
+  }
+  
+  .modal-info {
+    padding: 16px;
+    bottom: 16px;
+  }
+  
+  .modal-close {
+    top: 16px;
