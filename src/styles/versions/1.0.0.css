@@ -87,4 +87,10 @@ pre {
   padding: var(--spacing-md);
   overflow-x: auto;
   margin-bottom: var(--spacing-md);
-  font-size: 0.875
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* 图片样式 */
+img {
+  max-width:
