@@ -159,3 +159,27 @@ img {
 }
 
 .card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 区域样式 */
+.section {
+  padding: var(--spacing-3xl) 0;
+  border-bottom: none;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  h1 { font-size: var(--text-4xl); }
+  h2 { font-size: var(--text-3xl); }
+  h3 { font-size: var(--text-2xl); }
+  h4 { font-size: var(--text-xl); }
+  h5 { font-size: var(--text-lg); }
+  h6 { font-size: var(--text-base); }
+  
+  p {
+    margin-bottom: var(--spacing-md);
+  }
+}
