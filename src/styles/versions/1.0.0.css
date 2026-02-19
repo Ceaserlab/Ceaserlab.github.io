@@ -120,4 +120,14 @@ img {
 
 .nav-link:hover,
 .nav-link.active {
-  color:
+  color: var(--color-text);
+  background-color: var(--color-surface);
+}
+
+.nav-link::after {
+  display: none;
+}
+
+/* 按钮样式 */
+.nav-control-btn {
+  padding: var(--spacing-sm);
