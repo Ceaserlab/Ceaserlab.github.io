@@ -77,3 +77,14 @@ code, pre {
   border-left: none;
 }
 
+code {
+  padding: 0.125rem 0.25rem;
+  font-size: 0.875em;
+  background-color: var(--color-surface);
+}
+
+pre {
+  padding: var(--spacing-md);
+  overflow-x: auto;
+  margin-bottom: var(--spacing-md);
+  font-size: 0.875
