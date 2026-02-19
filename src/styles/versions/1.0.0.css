@@ -66,3 +66,14 @@ ul, ol {
 
 li {
   margin-bottom: var(--spacing-xs);
+  line-height: var(--leading-normal);
+}
+
+/* 代码样式 */
+code, pre {
+  font-family: var(--font-mono);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-sm);
+  border-left: none;
+}
+
