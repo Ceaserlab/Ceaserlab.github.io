@@ -1,0 +1,26 @@
+/**
+ * Version 1.0.0 Styles
+ * 初始版本样式
+ */
+
+/* 覆盖Swiss Style，恢复原始样式 */
+
+/* 基础样式 */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-weight: 300; /* 更轻的字重，更优雅 */
+  letter-spacing: 0.01em; /* 微调字间距 */
+  transition: background-color var(--transition-normal),
+              color var(--transition-normal);
+}
+
+/* 文本样式 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400; /* 更轻的字
