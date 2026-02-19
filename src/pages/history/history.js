@@ -6,6 +6,7 @@
 import { i18n } from '../../core/i18n/i18n.js';
 import { versionConfig } from '../../config/version.config.js';
 import { Navbar } from '../../components/navbar/navbar.js';
+import { assetsConfig } from '../../config/assets.config.js';
 
 class HistoryPage {
   constructor() {
@@ -34,7 +35,7 @@ class HistoryPage {
    */
   async loadNavbar() {
     try {
-      const response = await fetch('/src/components/navbar/navbar.html');
+      const response = await fetch(assetsConfig.get('templates', 'navbar'));
       const html = await response.text();
       document.getElementById('navbar-container').innerHTML = html;
       new Navbar();

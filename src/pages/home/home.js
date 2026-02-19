@@ -7,6 +7,7 @@ import { i18n } from '../../core/i18n/i18n.js';
 import { Navbar } from '../../components/navbar/navbar.js';
 import { Gallery } from '../../components/gallery/gallery.js';
 import { versionConfig } from '../../config/version.config.js';
+import { assetsConfig } from '../../config/assets.config.js';
 
 class HomePage {
   constructor() {
@@ -19,6 +20,13 @@ class HomePage {
   async init() {
     // 检查版本参数
     this.checkVersionParam();
+
+    // 默认加载1.0.1版本的CSS（当前版本）
+    const urlParams = new URLSearchParams(window.location.search);
+    const versionId = urlParams.get('v');
+    if (!versionId) {
+      this.loadCSS('/src/styles/versions/1.0.1.css');
+    }
 
     // 初始化导航栏（直接初始化，不需要加载 HTML）
     new Navbar();
@@ -82,10 +90,7 @@ class HomePage {
     this.loadVersionSpecificCSS(version.id);
     
     // 示例：根据版本ID修改页面内容
-    if (version.id === '0.9.0') {
-      // Beta版本的特殊处理
-      this.modifyBetaVersionContent();
-    } else if (version.id === '1.0.0') {
+    if (version.id === '1.0.0') {
       // 初始版本的处理
       this.modifyInitialVersionContent();
     }
@@ -101,10 +106,10 @@ class HomePage {
     // 根据版本ID加载不同的CSS
     if (versionId === '1.0.0') {
       // 1.0.0版本使用原始样式
-      this.loadCSS('/src/styles/versions/1.0.0.css');
-    } else if (versionId === '0.9.0') {
-      // 0.9.0版本使用beta样式
-      this.loadCSS('/src/styles/versions/0.9.0.css');
+      this.loadCSS(assetsConfig.get('styles', 'versions.1.0.0'));
+    } else if (versionId === '1.0.1') {
+      // 1.0.1版本使用Swiss Style
+      this.loadCSS('/src/styles/versions/1.0.1.css');
     }
   }
 
@@ -251,10 +256,10 @@ class HomePage {
    */
   async initGallery() {
     try {
-      const response = await fetch('/assets/data/gallery-data.json');
+      const response = await fetch(assetsConfig.get('data', 'gallery'));
       const data = await response.json();
 
-      const galleryHtml = await fetch('/src/components/gallery/gallery.html');
+      const galleryHtml = await fetch(assetsConfig.get('templates', 'gallery'));
       document.getElementById('gallery-container').innerHTML = await galleryHtml.text();
 
       new Gallery('gallery-map', data.images);

@@ -15,13 +15,6 @@ export const versionConfig = {
   // 版本列表（从旧到新）
   versions: [
     {
-      id: '0.9.0',
-      date: '2026-01-21',
-      name: 'Beta',
-      description: 'Beta version for testing',
-      archived: false, // 是否已归档（暂不实现）
-    },
-    {
       id: '1.0.0',
       date: '2026-01-22',
       name: 'Initial Release',

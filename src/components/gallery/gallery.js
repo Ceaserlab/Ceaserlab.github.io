@@ -3,6 +3,8 @@
  * 相册组件逻辑（优化版）- 节点地图
  */
 
+import { assetsConfig } from '../../config/assets.config.js';
+
 class Gallery {
   constructor(containerId, images) {
     this.container = document.getElementById(containerId);
