@@ -32,6 +32,7 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+.trae/
 
 # Temporary files
 tmp/
