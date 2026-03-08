@@ -194,10 +194,10 @@ const themeManager = {
 // ==================== Version Config ====================
 const versionConfig = {
   currentVersion: {
-    id: '1.0.1',
-    date: '2026-02-19',
-    name: 'Swiss Style Refactor',
-    description: 'Refactored website style to Swiss Style and updated timeline content',
+    id: '1.0.0',
+    date: '2026-01-22',
+    name: 'Initial Release',
+    description: 'First public release of ceaserzhao website',
   },
 
   versions: [
@@ -206,14 +206,7 @@ const versionConfig = {
       date: '2026-01-22',
       name: 'Initial Release',
       description: 'First public release of ceaserzhao website',
-      archived: false,
-    },
-    {
-      id: '1.0.1',
-      date: '2026-02-19',
-      name: 'Swiss Style Refactor',
-      description: 'Refactored website style to Swiss Style and updated timeline content',
-      archived: false,
+      archived: true,
     }
   ],
 
