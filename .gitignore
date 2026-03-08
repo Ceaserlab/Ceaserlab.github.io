@@ -42,3 +42,7 @@ temp/
 # Personal data (if any)
 *.pem
 *.key
+
+
+#other
+.trae/
