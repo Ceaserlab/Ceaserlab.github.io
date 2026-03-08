@@ -216,16 +216,16 @@ const versionConfig = {
   currentVersion: {
     id: '1.0.2',
     date: '2026-03-08',
-    name: 'In Development',
-    description: 'Version 1.0.2 - Under Development',
+    name: 'Major Update',
+    description: 'Added 4 new projects (AMAR ENGINE, AME SCANNER, CEBU, OasisBio) and isometric gallery redesign',
   },
 
   versions: [
     {
       id: '1.0.2',
       date: '2026-03-08',
-      name: 'In Development',
-      description: 'Version 1.0.2 - Under Development',
+      name: 'Major Update',
+      description: 'Added 4 new projects (AMAR ENGINE, AME SCANNER, CEBU, OasisBio) and isometric gallery redesign',
       archived: false,
     },
     {
