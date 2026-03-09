@@ -75,6 +75,26 @@
       "name": "Biosurf",
       "description": "A browser custom-built for machines",
       "github": "TBD"
+    },
+    "amar": {
+      "name": "AMAR ENGINE",
+      "description": "A powerful 3D game engine built from scratch",
+      "github": "TBD"
+    },
+    "amescanner": {
+      "name": "AME SCANNER",
+      "description": "Advanced scanning and analysis tool",
+      "github": "TBD"
+    },
+    "cebu": {
+      "name": "CEBU",
+      "description": "Cloud-based utility and management system",
+      "github": "TBD"
+    },
+    "oasisbio": {
+      "name": "OasisBio",
+      "description": "Biological research and analysis platform",
+      "github": "TBD"
     }
   },
   "motto2": {

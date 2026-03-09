@@ -75,6 +75,26 @@
       "name": "Biosurf",
       "description": "一个为机器量身定做的浏览器",
       "github": "待定"
+    },
+    "amar": {
+      "name": "AMAR ENGINE",
+      "description": "一个从 scratch 开始构建的强大 3D 游戏引擎",
+      "github": "待定"
+    },
+    "amescanner": {
+      "name": "AME SCANNER",
+      "description": "先进的扫描和分析工具",
+      "github": "待定"
+    },
+    "cebu": {
+      "name": "CEBU",
+      "description": "基于云的实用工具和管理系统",
+      "github": "待定"
+    },
+    "oasisbio": {
+      "name": "OasisBio",
+      "description": "生物研究和分析平台",
+      "github": "待定"
     }
   },
   "motto2": {
