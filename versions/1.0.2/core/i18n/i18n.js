@@ -145,12 +145,7 @@ let currentLanguage = 'en';
 
 const i18n = {
   t(key) {
-    const keys = key.split('.');
-    let value = translations[currentLanguage];
-    for (const k of keys) {
-      value = value?.[k];
-    }
-    return value || key;
+    return translations[currentLanguage][key] || key;
   },
 
   setLanguage(code) {
