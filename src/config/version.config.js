@@ -6,10 +6,10 @@
 export const versionConfig = {
   // 当前版本
   currentVersion: {
-    id: '1.0.1',
-    date: '2026-02-19',
-    name: 'Swiss Style Refactor',
-    description: 'Refactored website style to Swiss Style and updated timeline content',
+    id: '1.0.2',
+    date: '2026-03-08',
+    name: 'Component-Based Refactor',
+    description: 'Refactored website to use component-based architecture',
   },
 
   // 版本列表（从旧到新）
@@ -19,13 +19,20 @@ export const versionConfig = {
       date: '2026-01-22',
       name: 'Initial Release',
       description: 'First public release of ceaserzhao website',
-      archived: false,
+      archived: true,
     },
     {
       id: '1.0.1',
       date: '2026-02-19',
       name: 'Swiss Style Refactor',
       description: 'Refactored website style to Swiss Style and updated timeline content',
+      archived: true,
+    },
+    {
+      id: '1.0.2',
+      date: '2026-03-08',
+      name: 'Component-Based Refactor',
+      description: 'Refactored website to use component-based architecture',
       archived: false,
     },
     // 新版本只需在此添加，保持高扩展性

@@ -162,12 +162,8 @@ class HistoryPage {
    * 查看指定版本
    */
   viewVersion(version) {
-    if (version.id === versionConfig.currentVersion.id) {
-      window.location.href = '/';
-    } else {
-      // 实现版本切换逻辑
-      this.showVersionTransition(version);
-    }
+    // 实现版本切换逻辑
+    this.showVersionTransition(version);
   }
 
   /**
@@ -253,7 +249,7 @@ class HistoryPage {
             
             // 跳转到版本页面
             setTimeout(() => {
-              window.location.href = `/?v=${version.id}`;
+              window.location.href = `/versions/${version.id}/`;
             }, versionConfig.transition.animationDuration / 2);
           }, versionConfig.transition.animationDuration / 2);
         }, versionConfig.transition.animationDuration / 2);

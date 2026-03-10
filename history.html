@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Version history of Ceaserzhao website">
+  <meta name="theme-color" content="#00a67e">
+  <title>Version History - Ceaserzhao</title>
+
+  <!-- Swiss Style 字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- 基础样式 -->
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/layout.css">
+  <link rel="stylesheet" href="/src/styles/utilities.css">
+  <link rel="stylesheet" href="/src/styles/variables.css">
+  <link rel="stylesheet" href="/src/pages/history/history.css">
+</head>
+<body>
+  <!-- Navbar Container -->
+  <div id="navbar-container"></div>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Hero Section -->
+    <section class="hero-section section">
+      <div class="container">
+        <h1 data-i18n="history.title">Version History</h1>
+        <p data-i18n="history.description">Track the evolution of Ceaserzhao's website</p>
+      </div>
+    </section>
+
+    <!-- Version Selector -->
+    <section class="version-selector-section section">
+      <div class="container">
+        <div class="version-selector">
+          <select id="version-select" class="version-select-input">
+            <!-- Options will be populated by JS -->
+          </select>
+          <button id="view-button" class="version-select-button" data-i18n="history.view">View Version</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Version List -->
+    <section class="version-list-section section">
+      <div class="container">
+        <div id="version-list" class="version-list">
+          <!-- Version cards will be populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Ending -->
+    <section class="ending-section section">
+      <div class="container">
+        <p class="ending-text" data-i18n="ending.content">Let's build the Oasisverse from here</p>
+        <p class="footer-text" data-i18n="ending.footer">© 2026 Oasis Company</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/pages/history/history.js"></script>
+</body>
+</html>

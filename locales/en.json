@@ -173,9 +173,10 @@
   },
   "history": {
     "title": "Version History",
+    "description": "Track the evolution of Ceaserzhao's website",
     "current": "Current Version",
     "select": "Select Version",
-    "view": "View",
+    "view": "View Version",
     "back": "Back to Home",
     "loading": "Loading version...",
     "noVersions": "No versions available"

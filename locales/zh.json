@@ -173,9 +173,10 @@
   },
   "history": {
     "title": "版本历史",
+    "description": "追踪 Ceaserzhao 网站的演变",
     "current": "当前版本",
     "select": "选择版本",
-    "view": "查看",
+    "view": "查看版本",
     "back": "返回首页",
     "loading": "正在加载版本...",
     "noVersions": "暂无可用版本"
