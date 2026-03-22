@@ -3,9 +3,10 @@
  * Component-based implementation
  */
 
-import { i18n } from './core/i18n/i18n.js';
-import { themeManager } from './core/theme/theme-manager.js';
-import { Navbar } from './components/navbar/navbar.js';
+import { i18n } from '/src/core/i18n/i18n.js';
+import { themeManager } from '/src/core/theme/theme-manager.js';
+import { versionManager } from '/src/core/version/version-manager.js';
+import { Navbar } from '/src/components/navbar/navbar.js';
 import { Gallery } from './components/gallery/gallery.js';
 import { Contact } from './components/contact/contact.js';
 import { Timeline } from './components/timeline/timeline.js';
@@ -23,11 +24,11 @@ class HomePage {
     new Timeline();
 
     // Load saved language
-    const savedLang = localStorage.getItem('language') || 'en';
+    const savedLang = localStorage.getItem('ceaser-language') || 'en';
     i18n.setLanguage(savedLang);
 
     // Load saved theme
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedTheme = localStorage.getItem('ceaser-theme') || 'dark';
     themeManager.setTheme(savedTheme);
   }
 

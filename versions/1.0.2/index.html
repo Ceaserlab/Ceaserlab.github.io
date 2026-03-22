@@ -26,28 +26,16 @@
         <!-- Navigation Links -->
         <div class="navbar-links">
           <a href="/versions/1.0.2/" class="nav-link" data-i18n="nav.home">Home</a>
-          <div class="nav-control history-dropdown" id="history-dropdown">
-            <button class="nav-control-btn history-btn">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="history-icon">
-                <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14.5A6.5 6.5 0 1 1 8 1.5 6.5 6.5 0 0 1 0 14.5zM7.5 4.5h1v5h-1v-5zm0 6.5h1v1h-1v-1z"/>
-              </svg>
-              <span data-i18n="nav.history">History</span>
-              <svg class="chevron-icon" width="10" height="10" viewBox="0 0 10 10" fill="none">
-                <path d="M2 3L5 6L8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <div class="dropdown-menu" id="history-menu">
-              <div class="dropdown-header" data-i18n="nav.history">Version History</div>
-              <div class="version-list" id="version-dropdown-list">
-                <!-- Versions will be populated by JS -->
-              </div>
-              <a href="/history.html" class="dropdown-link" data-i18n="view-all">View All</a>
-            </div>
-          </div>
+          <a href="/history.html" class="nav-link" data-i18n="nav.history">History</a>
         </div>
 
         <!-- Right Side Controls -->
         <div class="navbar-controls">
+          <!-- Version Switcher -->
+          <div class="nav-control">
+            <!-- Version switcher will be inserted here by JS -->
+          </div>
+
           <!-- Language Switcher -->
           <div class="nav-control" id="language-switcher">
             <button class="nav-control-btn" aria-label="Change language">

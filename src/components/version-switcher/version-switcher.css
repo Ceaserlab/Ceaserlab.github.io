@@ -1,0 +1,133 @@
+/**
+ * Version Switcher Component Styles
+ * 版本切换组件样式
+ */
+
+.version-switcher {
+  position: relative;
+  display: inline-block;
+}
+
+.version-switcher-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #343541;
+  color: #ececf1;
+  border: 1px solid #565869;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.version-switcher-button:hover {
+  background-color: #444654;
+  border-color: #6b6d7f;
+}
+
+.version-switcher.active .version-switcher-button {
+  background-color: #444654;
+  border-color: #00a67e;
+}
+
+.version-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background-color: #343541;
+  border: 1px solid #565869;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  min-width: 300px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.version-list {
+  padding: 8px 0;
+}
+
+.version-item {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #565869;
+}
+
+.version-item:last-child {
+  border-bottom: none;
+}
+
+.version-item:hover {
+  background-color: #444654;
+}
+
+.version-item.current {
+  background-color: rgba(0, 166, 126, 0.1);
+  border-left: 3px solid #00a67e;
+}
+
+.version-id {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ececf1;
+  margin-bottom: 4px;
+}
+
+.version-date {
+  font-size: 12px;
+  color: #c5c5d2;
+  margin-bottom: 4px;
+}
+
+.version-name {
+  font-size: 14px;
+  color: #ececf1;
+}
+
+.version-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: #00a67e;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-top: 8px;
+  align-self: flex-start;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .version-dropdown {
+    min-width: 250px;
+    right: auto;
+    left: 0;
+  }
+}
+
+/* 滚动条样式 */
+.version-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.version-dropdown::-webkit-scrollbar-track {
+  background: #343541;
+  border-radius: 3px;
+}
+
+.version-dropdown::-webkit-scrollbar-thumb {
+  background: #565869;
+  border-radius: 3px;
+}
+
+.version-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #6b6d7f;
+}

@@ -6,7 +6,8 @@
 import { i18n } from '../../core/i18n/i18n.js';
 import { themeManager } from '../../core/theme/theme-manager.js';
 import { i18nConfig } from '../../config/i18n.config.js';
-import { versionConfig } from '../../config/version.config.js';
+import { VersionSwitcher } from '../version-switcher/version-switcher.js';
+import '../../components/version-switcher/version-switcher.css';
 
 class Navbar {
   constructor() {
@@ -24,9 +25,7 @@ class Navbar {
     this.currentLanguageFlag = document.getElementById('current-language-flag');
     this.currentLanguageName = document.getElementById('current-language-name');
     this.themeToggle = document.getElementById('theme-toggle');
-    this.historyDropdown = document.getElementById('history-dropdown');
-    this.historyMenu = document.getElementById('history-menu');
-    this.versionDropdownList = document.getElementById('version-dropdown-list');
+    this.versionSwitcherContainer = this.navbar.querySelector('.navbar-controls .nav-control:first-child');
 
     // 调试：检查 language-switcher 的子元素
     if (this.languageSwitcher) {
@@ -40,7 +39,7 @@ class Navbar {
     console.log('languageSwitcher element:', this.languageSwitcher);
     console.log('languageDropdown element:', this.languageDropdown);
     console.log('themeToggle element:', this.themeToggle);
-    console.log('historyDropdown element:', this.historyDropdown);
+    console.log('versionSwitcherContainer element:', this.versionSwitcherContainer);
   }
 
   /**
@@ -54,7 +53,7 @@ class Navbar {
 
     await this.initLanguageSwitcher();
     this.initThemeToggle();
-    this.initHistoryDropdown();
+    this.initVersionSwitcher();
     this.initActiveLink();
     this.initTranslations();
   }
@@ -132,164 +131,22 @@ class Navbar {
   }
 
   /**
-   * 初始化历史版本下拉菜单
+   * 初始化版本切换组件
    */
-  initHistoryDropdown() {
-    // 填充版本列表
-    this.generateVersionList();
-
-    // 绑定点击事件
-    this.historyDropdown.addEventListener('click', (e) => {
-      e.stopPropagation();
-      this.toggleDropdown(this.historyDropdown, this.historyMenu);
-    });
-
-    // 点击外部关闭下拉菜单
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.history-dropdown')) {
-        this.closeDropdown(this.historyDropdown, this.historyMenu);
-      }
-    });
-  }
-
-  /**
-   * 生成版本列表
-   */
-  generateVersionList() {
-    this.versionDropdownList.innerHTML = '';
-    const versions = versionConfig.versions;
-
-    // 按日期倒序排列
-    const sortedVersions = [...versions].reverse();
-
-    sortedVersions.forEach(version => {
-      const isCurrent = version.id === versionConfig.currentVersion.id;
-      const item = document.createElement('div');
-      item.className = 'version-dropdown-item';
-      
-      item.innerHTML = `
-        <span class="version-id">${version.id}</span>
-        <span class="version-date">${version.date}</span>
-        <span class="version-name">${version.name}</span>
-        ${isCurrent ? '<span class="version-badge current">Current</span>' : ''}
-      `;
-
-      // 点击切换版本
-      item.addEventListener('click', (e) => {
-        e.stopPropagation();
-        this.closeDropdown(this.historyDropdown, this.historyMenu);
-        
-        if (isCurrent) {
-          window.location.href = '/';
-        } else {
-          this.switchToVersion(version);
-        }
-      });
-
-      this.versionDropdownList.appendChild(item);
-    });
-  }
-
-  /**
-   * 切换到指定版本
-   */
-  switchToVersion(version) {
-    // 实现版本切换逻辑
-    this.showVersionTransition(version);
-  }
-
-  /**
-   * 显示版本切换过渡动画
-   */
-  showVersionTransition(version) {
-    // 导入版本配置
-    import('../../config/version.config.js').then(({ versionConfig }) => {
-      // 创建过渡动画元素
-      const transitionElement = document.createElement('div');
-      transitionElement.className = 'version-transition';
-      transitionElement.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 9999;
-        pointer-events: none;
-        overflow: hidden;
-      `;
-
-      // 创建左侧线条
-      const lineLeft = document.createElement('div');
-      lineLeft.style.cssText = `
-        position: absolute;
-        top: 0;
-        left: -50%;
-        width: 50%;
-        height: 100%;
-        background-color: ${versionConfig.transition.colors.lineLeft};
-        transition: transform ${versionConfig.transition.animationDuration}ms ease-in-out;
-      `;
-
-      // 创建右侧线条
-      const lineRight = document.createElement('div');
-      lineRight.style.cssText = `
-        position: absolute;
-        top: 0;
-        right: -50%;
-        width: 50%;
-        height: 100%;
-        background-color: ${versionConfig.transition.colors.lineRight};
-        transition: transform ${versionConfig.transition.animationDuration}ms ease-in-out;
-      `;
-
-      // 创建品牌文字
-      const brandText = document.createElement('div');
-      brandText.style.cssText = `
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 4rem;
-        font-weight: bold;
-        color: ${versionConfig.transition.colors.text};
-        opacity: 0;
-        transition: opacity ${versionConfig.transition.animationDuration / 2}ms ease-in-out;
-        transition-delay: ${versionConfig.transition.animationDuration / 2}ms;
-      `;
-      brandText.textContent = 'ceaserlab';
-
-      // 添加元素到页面
-      transitionElement.appendChild(lineLeft);
-      transitionElement.appendChild(lineRight);
-      transitionElement.appendChild(brandText);
-      document.body.appendChild(transitionElement);
-
-      // 触发动画
-      setTimeout(() => {
-        lineLeft.style.transform = 'translateX(100%)';
-        lineRight.style.transform = 'translateX(-100%)';
-        
-        // 显示品牌文字
-        setTimeout(() => {
-          brandText.style.opacity = '1';
-          
-          // 隐藏所有元素并跳转到版本页面
-          setTimeout(() => {
-            brandText.style.opacity = '0';
-            
-            setTimeout(() => {
-              lineLeft.style.transform = 'translateX(200%)';
-              lineRight.style.transform = 'translateX(-200%)';
-              
-              // 跳转到版本页面
-              setTimeout(() => {
-                window.location.href = `/?v=${version.id}`;
-              }, versionConfig.transition.animationDuration / 2);
-            }, versionConfig.transition.animationDuration / 2);
-          }, versionConfig.transition.animationDuration / 2);
-        }, versionConfig.transition.animationDuration);
-      }, 100);
-    });
+  initVersionSwitcher() {
+    if (this.versionSwitcherContainer) {
+      // 加载版本切换组件的HTML
+      fetch('/src/components/version-switcher/version-switcher.html')
+        .then(response => response.text())
+        .then(html => {
+          this.versionSwitcherContainer.innerHTML = html;
+          // 初始化版本切换组件
+          new VersionSwitcher();
+        })
+        .catch(error => {
+          console.error('Failed to load version switcher:', error);
+        });
+    }
   }
 
   /**
@@ -319,7 +176,6 @@ class Navbar {
    */
   closeAllDropdowns() {
     this.languageSwitcher.classList.remove('active');
-    this.historyDropdown.classList.remove('active');
   }
 
   /**

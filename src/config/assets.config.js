@@ -52,7 +52,8 @@ export const assetsConfig = {
     },
     // 版本样式
     versions: {
-      '1.0.0': '/src/styles/versions/1.0.0.css'
+      '1.0.0': '/src/styles/versions/1.0.0.css',
+      '1.0.1': '/src/styles/versions/1.0.1.css'
     }
   },
   

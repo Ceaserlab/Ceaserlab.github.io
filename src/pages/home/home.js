@@ -6,8 +6,10 @@
 import { i18n } from '../../core/i18n/i18n.js';
 import { Navbar } from '../../components/navbar/navbar.js';
 import { Gallery } from '../../components/gallery/gallery.js';
+import { versionManager } from '../../core/version/version-manager.js';
 import { versionConfig } from '../../config/version.config.js';
 import { assetsConfig } from '../../config/assets.config.js';
+import { storage } from '../../core/storage/storage.js';
 
 class HomePage {
   constructor() {
@@ -45,15 +47,10 @@ class HomePage {
    * 检查版本参数
    */
   checkVersionParam() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const versionId = urlParams.get('v');
-
-    if (versionId) {
-      const version = versionConfig.versions.find(v => v.id === versionId);
-      if (version) {
-        this.showVersionWatermark(version);
-        this.loadVersionContent(version);
-      }
+    const currentVersion = versionManager.getCurrentVersion();
+    if (currentVersion.id !== versionConfig.currentVersion.id) {
+      this.showVersionWatermark(currentVersion);
+      // 版本管理器已经处理了CSS加载
     }
   }
 
@@ -76,60 +73,6 @@ class HomePage {
     `;
     watermark.textContent = `Version ${version.id}`;
     document.body.appendChild(watermark);
-  }
-
-  /**
-   * 加载版本内容
-   */
-  loadVersionContent(version) {
-    // 根据版本ID加载不同的内容
-    // 这里可以根据需要实现更复杂的版本内容切换逻辑
-    console.log(`Loading version ${version.id}: ${version.name}`);
-    
-    // 加载版本特定的CSS
-    this.loadVersionSpecificCSS(version.id);
-    
-    // 示例：根据版本ID修改页面内容
-    if (version.id === '1.0.0') {
-      // 初始版本的处理
-      this.modifyInitialVersionContent();
-    }
-  }
-
-  /**
-   * 加载版本特定的CSS
-   */
-  loadVersionSpecificCSS(versionId) {
-    // 移除现有的版本特定CSS
-    this.removeVersionSpecificCSS();
-    
-    // 根据版本ID加载不同的CSS
-    if (versionId === '1.0.0') {
-      // 1.0.0版本使用原始样式
-      this.loadCSS(assetsConfig.get('styles', 'versions.1.0.0'));
-    } else if (versionId === '1.0.1') {
-      // 1.0.1版本使用Swiss Style
-      this.loadCSS('/src/styles/versions/1.0.1.css');
-    }
-  }
-
-  /**
-   * 加载CSS文件
-   */
-  loadCSS(href) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = href;
-    link.className = 'version-specific-css';
-    document.head.appendChild(link);
-  }
-
-  /**
-   * 移除版本特定的CSS
-   */
-  removeVersionSpecificCSS() {
-    const existingLinks = document.querySelectorAll('.version-specific-css');
-    existingLinks.forEach(link => link.remove());
   }
 
   /**
@@ -283,9 +226,17 @@ class HomePage {
         return;
       }
 
-      // 这里可以集成表单提交逻辑
-      // 目前只是简单显示成功消息
-      alert('Thank you for your message! This is a demo, so the message is not actually sent.');
+      // 保存消息到本地存储
+      const messages = storage.get('ceaser-messages', []);
+      messages.push({
+        id: Date.now(),
+        content: message,
+        timestamp: new Date().toISOString()
+      });
+      storage.set('ceaser-messages', messages);
+
+      // 显示成功消息
+      alert('Thank you for your message! Your message has been saved.');
       messageInput.value = '';
     });
 
