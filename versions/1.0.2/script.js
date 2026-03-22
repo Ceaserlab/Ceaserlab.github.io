@@ -18,6 +18,9 @@ class HomePage {
   }
 
   async init() {
+    // Initialize i18n first
+    await i18n.init();
+
     // Load saved language
     const savedLang = localStorage.getItem('ceaser-language') || 'en';
     i18n.setLanguage(savedLang);
@@ -30,6 +33,22 @@ class HomePage {
     await this.initGallery();
     new Contact();
     new Timeline();
+
+    // Update translations
+    this.updateTranslations();
+
+    // Listen for language changes
+    i18n.onChange(() => {
+      this.updateTranslations();
+    });
+  }
+
+  updateTranslations() {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      element.textContent = i18n.t(key);
+    });
   }
 
   async initGallery() {
