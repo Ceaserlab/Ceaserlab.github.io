@@ -2,364 +2,220 @@
 
 This document outlines the development standards and best practices for the Ceaserlab.github.io project.
 
-## 📁 Project Structure
+## 1. Code Organization
 
+### 1.1 Directory Structure
 ```
 Ceaserlab.github.io/
-├── versions/                 # Independent version directories
-│   ├── 1.0.0/               # Version 1.0.0 (Archived)
-│   │   ├── index.html       # Complete HTML for this version
-│   │   ├── style.css        # Complete CSS for this version
-│   │   └── script.js        # Complete JavaScript for this version
-│   ├── 1.0.1/               # Version 1.0.1 (Archived)
-│   │   ├── index.html
-│   │   ├── style.css
-│   │   └── script.js
-│   └── 1.0.2/               # Version 1.0.2 (Current)
-│       ├── index.html
-│       ├── style.css
-│       └── script.js
-├── assets/                  # Shared resources (images, data files)
-│   ├── images/
-│   └── data/
-├── locales/                 # Shared translation files (optional)
-├── index.html               # Redirects to latest version
-└── docs/                    # Documentation
+├── index.html              # Main page (development version)
+├── history.html            # Version history page
+├── redirect.html           # Redirect to latest version
+├── src/                    # Source code (main development directory)
+│   ├── components/         # Reusable components
+│   ├── core/               # Core functionality (i18n, theme, etc.)
+│   ├── pages/              # Page-specific logic
+│   ├── styles/             # CSS styles
+│   │   ├── versions/       # Version-specific styles
+│   │   └── base.css        # Base styles
+│   └── config/             # Configuration files
+├── versions/               # Version archives (read-only)
+│   ├── 1.0.0/              # Complete 1.0.0 version (archive)
+│   ├── 1.0.1/              # Complete 1.0.1 version (archive)
+│   └── 1.0.2/              # Complete 1.0.2 version (archive)
+├── locales/                # Translation files
+├── assets/                 # Static assets (images, data)
+└── docs/                   # Documentation
+    └── DEVELOPMENT_GUIDELINES.md  # This file
 ```
 
-## 🎯 Core Principles
+### 1.2 Module Design Principles
+- **Modularity**: Each feature should be independent and reusable
+- **Version Isolation**: Code in `versions/` directory is read-only archive, not for daily development
+- **Core Sharing**: Core functionality (i18n, theme, etc.) is placed in `src/core/` directory and shared across all versions
 
-### 1. **Independent Versions**
-Each version is a **completely standalone** implementation:
-- **Separate HTML, CSS, and JS files**
-- **No shared dependencies** between versions
-- **Full isolation** - changes to one version do not affect others
+## 2. Naming Conventions
 
-### 2. **Version Semantics**
-- Follow Semantic Versioning: `MAJOR.MINOR.PATCH`
-- **MAJOR** (X.0.0): Major redesign, breaking changes
-- **MINOR** (1.X.0): New features, significant updates
-- **PATCH** (1.0.X): Bug fixes, minor improvements
+### 2.1 File Naming
+- Use lowercase letters and hyphens
+- Example: `home-page.js`, `navbar.css`
 
-### 3. **File Organization**
-Each version directory must contain exactly three files:
-- `index.html` - The complete HTML structure
-- `style.css` - All styles for this version
-- `script.js` - All JavaScript logic for this version
+### 2.2 Variable Naming
+- Use camelCase for variables and functions
+- Example: `currentLanguage`, `initTranslations()`
 
-## 🚀 Creating a New Version
+### 2.3 Constant Naming
+- Use uppercase letters and underscores
+- Example: `MAX_WIDTH`, `API_ENDPOINT`
 
-### Step 1: Create Version Directory
-```bash
-# Example: Creating version 1.1.0
-mkdir versions/1.1.0
-```
+### 2.4 CSS Class Naming
+- Use lowercase letters and hyphens
+- Example: `.hero-section`, `.navbar-content`
 
-### Step 2: Copy from Latest Version
-```bash
-# On Windows
-copy versions\1.0.2\index.html versions\1.1.0\
-copy versions\1.0.2\style.css versions\1.1.0\
-copy versions\1.0.2\script.js versions\1.1.0\
+## 3. Import Paths
 
-# On Unix/Linux/macOS
-cp versions/1.0.2/index.html versions/1.1.0/
-cp versions/1.0.2/style.css versions/1.1.0/
-cp versions/1.0.2/script.js versions/1.1.0/
-```
+### 3.1 Relative Paths
+- Preferred for local module imports
+- Example: `./components/navbar/navbar.js`
 
-### Step 3: Update Version Configuration
-Edit `versions/1.1.0/script.js` and update the `versionConfig`:
+### 3.2 Absolute Paths
+- Only used for core module references
+- Example: `/src/core/i18n/i18n.js`
 
-```javascript
-const versionConfig = {
-  currentVersion: {
-    id: '1.1.0',
-    date: 'YYYY-MM-DD',  // Use release date
-    name: 'Version Name',
-    description: 'Brief description of changes',
-  },
+## 4. Code Style
 
-  versions: [
-    {
-      id: '1.1.0',
-      date: 'YYYY-MM-DD',
-      name: 'Version Name',
-      description: 'Brief description',
-      archived: false,  // New versions are not archived
-    },
-    {
-      id: '1.0.2',
-      date: '2026-03-08',
-      name: 'In Development',
-      description: 'Version 1.0.2 - Under Development',
-      archived: true,  // Mark older versions as archived
-    },
-    // ... include all previous versions in reverse chronological order
-  ],
-  // ... rest of configuration
-};
-```
+### 4.1 Indentation
+- Use 2 spaces for indentation
+- No tabs
 
-### Step 4: Update Root Redirect
-Edit `index.html` in the project root to redirect to the new version:
+### 4.2 Semicolons
+- Use semicolons to end statements
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=/versions/1.1.0/">
-  <title>Ceaserzhao - Redirecting</title>
-  <script>
-    window.location.replace('/versions/1.1.0/');
-  </script>
-</head>
-<body>
-  <p>Redirecting to <a href="/versions/1.1.0/">Ceaserzhao Website</a>...</p>
-</body>
-</html>
-```
+### 4.3 Quotes
+- Use single quotes for strings
+- Use backticks for template literals
 
-### Step 5: Update Previous Versions
-For each previous version (except the very first version 1.0.0), update their `script.js` to mark them as archived:
+### 4.4 Comments
+- Only add comments for complex logic
+- Follow JSDoc specification for function documentation
 
-```javascript
-// In versions/1.0.2/script.js, versions/1.0.1/script.js, etc.
-const versionConfig = {
-  currentVersion: {
-    id: '1.0.2',  // Keep this as is - each page shows itself as current
-    // ... rest of currentVersion config
-  },
-  versions: [
-    {
-      id: '1.0.2',
-      date: '2026-03-08',
-      name: 'In Development',
-      description: 'Version 1.0.2 - Under Development',
-      archived: true,  // Changed to true since it's now an old version
-    },
-    // ... rest of versions
-  ],
-};
-```
+### 4.5 Line Length
+- Keep lines under 80 characters when possible
+- Use line breaks for long statements
 
-### Step 6: Test
-1. Access root URL (`/`) - should redirect to new version
-2. Access new version directly (`/versions/1.1.0/`)
-3. Test version switching in navigation dropdown
-4. Test all features (language switch, navigation, etc.)
-5. Check for console errors
+## 5. Version Management
 
-## 📝 Code Standards
+### 5.1 Adding New Versions
+1. Update `src/config/version.config.js` with new version information
+2. Test thoroughly
+3. Archive current version to `versions/` directory
+4. Update `redirect.html` to point to the new version
 
-### HTML
-- Use semantic HTML5 elements
-- Include proper meta tags (viewport, description, theme-color)
-- Maintain consistent indentation (2 spaces or 4 spaces)
-- Include accessible alt text for images
-- Use proper heading hierarchy (h1 → h2 → h3)
+### 5.2 Version Switching
+- Use URL parameter `?v=1.0.0` to switch between versions
+- Maintain backward compatibility
 
-### CSS
-- Use consistent naming conventions (kebab-case for classes)
-- Organize styles with clear comments:
-  ```css
-  /* ==================== Section Name ==================== */
-  /* Subsection */
-  .class-name { }
-  ```
-- Use CSS variables for colors and spacing
-- Maintain responsive design principles
-- Follow Swiss Style principles (clean, grid-based, readable)
+## 6. Internationalization
 
-### JavaScript
-- Use modern ES6+ syntax
-- Use strict mode: `'use strict';`
-- Organize code with clear section comments:
-  ```javascript
-  // ==================== Section Name ====================
-  ```
-- Use const/let instead of var
-- Write functions that are self-contained
-- Avoid global namespace pollution
-- Add meaningful comments for complex logic
+### 6.1 Translation Keys
+- Use dot-separated namespaces
+- Example: `nav.home`, `projects.urconomy.name`
 
-## 🔍 Quality Assurance
+### 6.2 Default Language
+- English (en) is the default language
 
-### Before Committing
-1. **Lint Check**: Run linter on all modified files
-2. **Cross-Browser Test**: Test on multiple browsers (Chrome, Firefox, Safari, Edge)
-3. **Responsive Test**: Test on different screen sizes (mobile, tablet, desktop)
-4. **Feature Test**: Test all interactive features
-5. **Link Check**: Verify all internal and external links work
+### 6.3 Translation Files
+- Stored in `locales/` directory
+- One file per language (e.g., `en.json`, `zh.json`)
 
-### Code Review Checklist
-- [ ] Version configuration is updated correctly
-- [ ] All three files (HTML, CSS, JS) are present and functional
-- [ ] No console errors or warnings
-- [ ] Navigation and version switching work correctly
-- [ ] All translations are correct
-- [ ] Images and assets load properly
-- [ ] Design follows established style guidelines
+## 7. Theme Management
 
-## 🌐 Internationalization (i18n)
+### 7.1 CSS Variables
+- All colors, spacing, etc. are defined via CSS variables
+- Stored in `src/styles/variables.css`
 
-The project supports multiple languages. When adding new content:
+### 7.2 Theme Switching
+- Support for light/dark themes
+- Controlled via `data-theme` attribute on `<html>` element
 
-1. **Add translations to all languages** in the `translations` object
-2. **Keep translations consistent** across all supported languages
-3. **Use descriptive keys** (e.g., `"nav.home"`, `"hero.intro1"`)
-4. **Test language switching** for all supported languages
+## 8. Testing
 
-Currently supported languages:
-- English (en)
-- Chinese (zh)
-- Spanish (es)
-- Hindi (hi)
-- Arabic (ar)
+### 8.1 Unit Tests
+- Write unit tests for core modules
+- Test edge cases and error handling
 
-## 🎨 Design Guidelines
+### 8.2 Integration Tests
+- Ensure version switching works correctly
+- Test language and theme switching
 
-### Swiss Style Principles
-- **Grid System**: Use 12-column grid layout
-- **Typography**: Clean, readable fonts (Inter, Roboto, etc.)
-- **Colors**: Use the brand blue-green (#00a67e) as primary color
-- **Hierarchy**: Clear visual hierarchy with font weights and spacing
-- **Whitespace**: Generous whitespace for readability
-- **Simplicity**: Minimalist design, avoid unnecessary decorations
+### 8.3 Manual Testing
+- Test each version before release
+- Verify cross-browser compatibility
 
-## 📦 Assets Management
+## 9. Deployment
 
-### Images
-- Store all images in `assets/images/`
-- Use descriptive filenames (e.g., `profile-photo.jpg`, `project-screenshot.png`)
-- Optimize images for web (compress, appropriate dimensions)
-- Use modern formats (WebP, AVIF) when browser support allows
+### 9.1 Build Process
+- Use build tools (e.g., Vite) for optimization
+- Minify CSS and JavaScript
 
-### Data Files
-- Store shared data in `assets/data/`
-- Use JSON format for structured data
-- Keep data files version-independent when possible
+### 9.2 Static Assets
+- All static assets go in `assets/` directory
+- Optimize images for web
 
-## 🔄 Version Release Process
+### 9.3 Cache Strategy
+- Set appropriate cache headers
+- Use versioned filenames for static assets
 
-1. **Development Phase**
-   - Create new version directory
-   - Copy from latest version
-   - Update version config with "In Development" status
+## 10. Collaboration
 
-2. **Testing Phase**
-   - Test all features
-   - Fix bugs
-   - Refactor code if needed
+### 10.1 Git Workflow
+- Use feature branches for new functionality
+- Pull requests for code review
+- Semantic versioning
 
-3. **Release Phase**
-   - Update version name from "In Development" to release name
-   - Update release date
-   - Mark previous versions as archived
-   - Update root redirect
+### 10.2 Commit Messages
+- Follow Conventional Commits specification
+- Example: `feat: add language switcher`
 
-4. **Documentation**
-   - Update CHANGELOG.md
-   - Document breaking changes
-   - Update VERSIONS.md if needed
+### 10.3 Code Review
+- Self-review before committing
+- Team review for major changes
+- Focus on code quality and consistency
 
-## 📊 Version History Management
+## 11. Security
 
-### Version Status
-- **In Development**: `archived: false`, name: "In Development"
-- **Released**: `archived: false`, name: "Release Name"
-- **Archived**: `archived: true`
+### 11.1 Input Validation
+- Sanitize user input
+- Prevent XSS attacks
 
-### When to Archive a Version
-- A new version has been released
-- The version is no longer actively maintained
-- The version is considered a historical version
+### 11.2 Dependencies
+- Keep dependencies up to date
+- Remove unused dependencies
 
-### Example Version Configurations
+### 11.3 HTTPS
+- Ensure all resources are loaded via HTTPS
 
-**New Version (In Development)**:
-```javascript
-{
-  id: '1.1.0',
-  date: '2026-04-01',
-  name: 'In Development',
-  description: 'Version 1.1.0 - Under Development',
-  archived: false,
-}
-```
+## 12. Performance
 
-**Released Version**:
-```javascript
-{
-  id: '1.1.0',
-  date: '2026-04-15',
-  name: 'Feature Update',
-  description: 'Added new gallery features and improved navigation',
-  archived: false,
-}
-```
+### 12.1 Loading Speed
+- Minimize HTTP requests
+- Use lazy loading for images
+- Optimize critical rendering path
 
-**Archived Version**:
-```javascript
-{
-  id: '1.0.2',
-  date: '2026-03-08',
-  name: 'In Development',
-  description: 'Version 1.0.2 - Under Development',
-  archived: true,
-}
-```
+### 12.2 Runtime Performance
+- Avoid unnecessary DOM manipulations
+- Use event delegation
+- Optimize animations
 
-## 🤝 Contributing
+## 13. Accessibility
 
-### Git Workflow
-1. Create a new branch for each version or feature
-2. Commit changes with descriptive messages
-3. Test thoroughly before pushing
-4. Use pull requests for code review
+### 13.1 Semantic HTML
+- Use proper HTML elements for their intended purpose
+- Add ARIA attributes where necessary
 
-### Commit Message Format
-```
-feat(version): add new version 1.1.0
-fix(nav): correct version switching bug
-style(css): improve responsive design
-docs(readme): update development guidelines
-```
+### 13.2 Keyboard Navigation
+- Ensure all interactive elements are keyboard accessible
+- Test with screen readers
 
-## 📚 Related Documents
+### 13.3 Color Contrast
+- Maintain sufficient color contrast
+- Support for high contrast mode
 
-- `CHANGELOG.md` - Detailed change history
-- `VERSIONS.md` - Version architecture overview
-- `REFACTOR_SUMMARY.md` - Summary of recent refactoring
+## 14. Troubleshooting
 
-## 🆘 Troubleshooting
+### 14.1 Common Issues
+- **CSS not loading**: Check file paths and network requests
+- **i18n not working**: Verify translation keys and file paths
+- **Version switching issues**: Check URL parameters and redirect logic
 
-### Common Issues
+### 14.2 Debugging Tips
+- Use browser developer tools
+- Check console for errors
+- Test in multiple browsers
 
-**Version switching not working**
-- Check `versionConfig` in `script.js`
-- Verify version IDs match directory names
-- Ensure no JavaScript errors in console
+## 15. Conclusion
 
-**Styles not loading**
-- Verify CSS file path in HTML
-- Check for CSS syntax errors
-- Clear browser cache
-
-**Translations missing**
-- Ensure all keys exist in all languages
-- Check translation object structure
-- Verify language switching logic
-
-**Images not displaying**
-- Check image paths are correct
-- Verify files exist in `assets/images/`
-- Check image permissions
+Following these guidelines will help maintain a consistent, maintainable, and high-quality codebase. Remember to always prioritize code readability and user experience.
 
 ---
 
-**Last Updated**: 2026-03-08  
-**Maintained By**: Ceaserzhao  
-**Project**: Ceaserlab.github.io
+**Last Updated**: 2026-03-23
