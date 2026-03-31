@@ -81,4 +81,19 @@ Create `src/styles/versions/1.0.3.css` with the following structure:
  * Design Philosophy:
  * - Evolution as Art: Each element tells a story
  * - Technology as Expression: Advanced CSS for immersive experiences
- * - Intentional Design: Every change serves the
+ * - Intentional Design: Every change serves the dreambuilder narrative
+ */
+
+/* ============================================
+   HERO SECTION - Text Reveal Animation
+   ============================================ */
+
+.hero-section {
+  /* Base styles for hero section */
+}
+
+.hero-text-reveal {
+  /* Container for text reveal animation */
+}
+
+.hero-text-reveal .word
