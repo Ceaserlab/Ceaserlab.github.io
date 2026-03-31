@@ -239,4 +239,11 @@ Modify `index.html` to load v1.0.3 styles:
 
 ```html
 <!-- Current version styles (1.0.3) -->
-<link rel="stylesheet" href="
+<link rel="stylesheet" href="/src/styles/versions/1.0.3.css">
+```
+
+Replace the existing version CSS link.
+
+#### Step 2: Prepare Hero Section Structure
+
+Update the hero section HTML to support text reveal animation:
