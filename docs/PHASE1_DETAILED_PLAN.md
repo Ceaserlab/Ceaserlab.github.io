@@ -235,4 +235,8 @@ Ensure the following files exist and are properly linked:
 
 #### Step 1: Update index.html
 
-Modify
+Modify `index.html` to load v1.0.3 styles:
+
+```html
+<!-- Current version styles (1.0.3) -->
+<link rel="stylesheet" href="
