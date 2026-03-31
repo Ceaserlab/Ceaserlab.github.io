@@ -258,4 +258,7 @@ Update the hero section HTML to support text reveal animation:
       <div class="hero-text">
         <h1 class="hero-title" data-i18n="hero.name">Ceaserzhao</h1>
         <div class="hero-intro hero-text-reveal" id="hero-text-reveal">
-          <!-- Text will
+          <!-- Text will be split into words by JavaScript -->
+          <p data-i18n="hero.intro1">I'm ceaserzhao, an insane dreambuilder...</p>
+          <p data-i18n="hero.intro2">I have many crazy dreams...</p>
+          <p
