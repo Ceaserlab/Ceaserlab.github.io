@@ -120,4 +120,17 @@ Create `src/styles/versions/1.0.3.css` with the following structure:
    ============================================ */
 
 .project-card {
-  /* Base project
+  /* Base project card styles */
+}
+
+/* Urconomy - Book/Author Aesthetic */
+.project-card.urconomy {
+  /* Elegant, intellectual styling */
+}
+
+/* Wocon - Travel/Adventure Theme */
+.project-card.wocon {
+  /* Dynamic, exploratory styling */
+}
+
+/* Oermos
