@@ -253,4 +253,9 @@ Update the hero section HTML to support text reveal animation:
   <div class="container">
     <div class="hero-content">
       <div class="hero-avatar">
-        <img src="/assets/images/avatar/avatar.jpg" alt="Ceaserzhao"
+        <img src="/assets/images/avatar/avatar.jpg" alt="Ceaserzhao" class="avatar-image">
+      </div>
+      <div class="hero-text">
+        <h1 class="hero-title" data-i18n="hero.name">Ceaserzhao</h1>
+        <div class="hero-intro hero-text-reveal" id="hero-text-reveal">
+          <!-- Text will
