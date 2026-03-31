@@ -261,4 +261,27 @@ Update the hero section HTML to support text reveal animation:
           <!-- Text will be split into words by JavaScript -->
           <p data-i18n="hero.intro1">I'm ceaserzhao, an insane dreambuilder...</p>
           <p data-i18n="hero.intro2">I have many crazy dreams...</p>
-          <p
+          <p data-i18n="hero.intro3">As thought, so happens...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+---
+
+## Day 2: Development Environment & Documentation
+
+### Task 2.1: Set Up Development Environment
+
+#### Step 1: Verify Development Server
+
+Ensure the development server is running correctly:
+
+```bash
+# Check if live-server is installed
+npx live-server --version
+
+# Start development server
+npx live-server --port=5500 --open=/
