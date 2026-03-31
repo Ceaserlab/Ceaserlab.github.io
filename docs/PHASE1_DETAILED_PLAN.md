@@ -217,4 +217,13 @@ Create `src/styles/versions/1.0.3.css` with the following structure:
   /* Dark theme adjustments */
 }
 
-[data-theme="light"] .
+[data-theme="light"] .hero-section {
+  /* Light theme adjustments */
+}
+```
+
+#### Step 2: Verify File Structure
+
+Ensure the following files exist and are properly linked:
+- `src/styles/versions/1.0.3.css` (newly created)
+- `
