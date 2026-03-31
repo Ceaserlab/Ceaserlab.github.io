@@ -96,4 +96,8 @@ Create `src/styles/versions/1.0.3.css` with the following structure:
   /* Container for text reveal animation */
 }
 
-.hero-text-reveal .word
+.hero-text-reveal .word {
+  /* Individual word styling */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: textReveal 0.6s ease forwards;
