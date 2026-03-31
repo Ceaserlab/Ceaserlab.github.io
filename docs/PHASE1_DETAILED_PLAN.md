@@ -247,3 +247,10 @@ Replace the existing version CSS link.
 #### Step 2: Prepare Hero Section Structure
 
 Update the hero section HTML to support text reveal animation:
+
+```html
+<section class="hero-section section">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-avatar">
+        <img src="/assets/images/avatar/avatar.jpg" alt="Ceaserzhao"
