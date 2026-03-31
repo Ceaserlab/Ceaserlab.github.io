@@ -201,4 +201,20 @@ Create `src/styles/versions/1.0.3.css` with the following structure:
    RESPONSIVE DESIGN
    ============================================ */
 
-@media (max-width: 768
+@media (max-width: 768px) {
+  /* Mobile adaptations */
+}
+
+@media (max-width: 480px) {
+  /* Small mobile adaptations */
+}
+
+/* ============================================
+   THEME COMPATIBILITY
+   ============================================ */
+
+[data-theme="dark"] .hero-section {
+  /* Dark theme adjustments */
+}
+
+[data-theme="light"] .
