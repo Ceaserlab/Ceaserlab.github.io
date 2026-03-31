@@ -75,6 +75,26 @@
       "name": "Biosurf",
       "description": "मशीनों के लिए एक कस्टम बनाया गया ब्राउज़र",
       "github": "जल्द आ रहा है"
+    },
+    "amar": {
+      "name": "AMAR ENGINE",
+      "description": "एक शक्तिशाली 3D गेम इंजन जो स्क्रैच से बनाया गया है",
+      "github": "जल्द आ रहा है"
+    },
+    "amescanner": {
+      "name": "AME SCANNER",
+      "description": "उन्नत स्कैनिंग और विश्लेषण उपकरण",
+      "github": "जल्द आ रहा है"
+    },
+    "cebu": {
+      "name": "CEBU",
+      "description": "क्लाउड-आधारित उपयोगिता और प्रबंधन प्रणाली",
+      "github": "जल्द आ रहा है"
+    },
+    "oasisbio": {
+      "name": "OasisBio",
+      "description": "जैविक अनुसंधान और विश्लेषण प्लेटफ़ॉर्म",
+      "github": "जल्द आ रहा है"
     }
   },
   "motto2": {

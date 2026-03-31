@@ -1,0 +1,91 @@
+/* CSS Variables */
+:root {
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  /* Typography */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  
+  /* Colors */
+  --color-primary: #00a67e;
+  --color-primary-dark: #008a68;
+  --color-secondary: #6c757d;
+  --color-dark: #1a1a1a;
+  --color-light: #f8f9fa;
+  --color-danger: #dc3545;
+  --color-warning: #ffc107;
+  --color-success: #28a745;
+  --color-info: #17a2b8;
+  
+  /* Backgrounds */
+  --bg-dark: #0d0d0d;
+  --bg-light: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  
+  /* Borders */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+  --border-radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Container */
+  --container-max-width: 1200px;
+  --container-padding: 2rem;
+  
+  /* Navbar */
+  --navbar-height: 80px;
+  
+  /* Z-index */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --color-light: #1a1a1a;
+  --color-dark: #f8f9fa;
+  --bg-light: #0d0d0d;
+  --bg-dark: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.05);
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+  --color-light: #f8f9fa;
+  --color-dark: #1a1a1a;
+  --bg-light: #ffffff;
+  --bg-dark: #0d0d0d;
+  --bg-card: rgba(0, 0, 0, 0.05);
+}

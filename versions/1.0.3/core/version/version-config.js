@@ -1,13 +1,13 @@
 /**
- * Version Config for Version 1.0.2
+ * Version Config for Version 1.0.3
  */
 
 const versionConfig = {
   currentVersion: {
-    id: '1.0.2',
-    date: '2026-03-08',
-    name: 'Component-Based Refactor',
-    description: 'Refactored website to use component-based architecture',
+    id: '1.0.3',
+    date: '2026-04-01',
+    name: 'The Dreambuilder Awakens',
+    description: 'A transformative update with animated hero text and project pull-out drawers',
   },
 
   versions: [
@@ -30,6 +30,13 @@ const versionConfig = {
       date: '2026-03-08',
       name: 'Component-Based Refactor',
       description: 'Refactored website to use component-based architecture',
+      archived: true,
+    },
+    {
+      id: '1.0.3',
+      date: '2026-04-01',
+      name: 'The Dreambuilder Awakens',
+      description: 'A transformative update with animated hero text and project pull-out drawers',
       archived: false,
     }
   ],

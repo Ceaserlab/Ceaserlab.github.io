@@ -57,6 +57,9 @@ const translations = {
     "timeline.items.10.event": "Started developing Wocon",
     "timeline.items.11.event": "Created this website",
     "timeline.items.12.event": "Started developing AMAR ENGINE",
+    "timeline.items.13.event": "Started developing thtoh",
+    "timeline.items.14.event": "Returned to Medium",
+    "timeline.items.15.event": "Started developing heya",
     "contact.title": "Leave Something For Me",
     "contact.placeholder": "Your message...",
     "contact.submit": "Send",
@@ -121,6 +124,9 @@ const translations = {
     "timeline.items.10.event": "开始开发 Wocon",
     "timeline.items.11.event": "创建了这个网站",
     "timeline.items.12.event": "开始开发 AMAR ENGINE",
+    "timeline.items.13.event": "开始开发 thtoh",
+    "timeline.items.14.event": "回归 Medium",
+    "timeline.items.15.event": "开始开发 heya",
     "contact.title": "留点什么给我",
     "contact.placeholder": "你的消息...",
     "contact.submit": "发送",
@@ -134,33 +140,84 @@ const translations = {
 };
 
 const languages = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'zh', name: '中文', flag: '🇨🇳' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
-  { code: 'ar', name: 'العربية', flag: '🇸🇦' }
+  { code: 'en', name: 'English', flag: '🇺🇸', rtl: false },
+  { code: 'zh', name: '中文', flag: '🇨🇳', rtl: false },
+  { code: 'es', name: 'Español', flag: '🇪🇸', rtl: false },
+  { code: 'hi', name: 'हिन्दी', flag: '🇮🇳', rtl: false },
+  { code: 'ar', name: 'العربية', flag: '🇸🇦', rtl: true }
 ];
 
-let currentLanguage = 'en';
+let currentLanguage = localStorage.getItem('ceaser-language') || 'en';
 
 const i18n = {
-  t(key) {
+  t(key, params = {}) {
     const keys = key.split('.');
     let value = translations[currentLanguage];
+
     for (const k of keys) {
-      value = value?.[k];
+      if (value && typeof value === 'object' && k in value) {
+        value = value[k];
+      } else {
+        // 如果找不到翻译，返回 key
+        console.warn(`Translation key "${key}" not found for language "${currentLanguage}"`);
+        return key;
+      }
     }
-    return value || key;
+
+    // 如果不是字符串，返回 key
+    if (typeof value !== 'string') {
+      console.warn(`Translation value for key "${key}" is not a string`);
+      return key;
+    }
+
+    // 替换参数
+    return this._replaceParams(value, params);
+  },
+
+  _replaceParams(template, params) {
+    return template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
+      return params[key] !== undefined ? params[key] : match;
+    });
   },
 
   setLanguage(code) {
+    if (!this._isValidLanguage(code)) {
+      console.warn(`Language "${code}" is not supported`);
+      return;
+    }
+
     currentLanguage = code;
-    localStorage.setItem('language', code);
+    localStorage.setItem('ceaser-language', code);
+    this._updateHtmlAttributes();
     this.updateTranslations();
+    this._dispatchLanguageChange(code);
+  },
+
+  _isValidLanguage(language) {
+    return languages.some(lang => lang.code === language);
+  },
+
+  _updateHtmlAttributes() {
+    const langConfig = languages.find(l => l.code === currentLanguage);
+    if (langConfig) {
+      document.documentElement.setAttribute('lang', langConfig.code);
+      document.documentElement.setAttribute('dir', langConfig.rtl ? 'rtl' : 'ltr');
+    }
+  },
+
+  _dispatchLanguageChange(language) {
+    const event = new CustomEvent('languagechange', {
+      detail: { language }
+    });
+    window.dispatchEvent(event);
   },
 
   getLanguage() {
     return currentLanguage;
+  },
+
+  getLanguageConfig() {
+    return languages.find(l => l.code === currentLanguage);
   },
 
   getAllLanguages() {
@@ -172,11 +229,18 @@ const i18n = {
       const key = el.getAttribute('data-i18n');
       el.textContent = this.t(key);
     });
+  },
+
+  onChange(callback) {
+    const handler = (e) => callback(e.detail.language);
+    window.addEventListener('languagechange', handler);
+    return () => window.removeEventListener('languagechange', handler);
   }
 };
 
 // Initialize translations on load
 document.addEventListener('DOMContentLoaded', () => {
+  i18n._updateHtmlAttributes();
   i18n.updateTranslations();
 });
 

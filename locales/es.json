@@ -75,6 +75,26 @@
       "name": "Biosurf",
       "description": "Un navegador personalizado para máquinas",
       "github": "Por determinar"
+    },
+    "amar": {
+      "name": "AMAR ENGINE",
+      "description": "Un potente motor de juegos 3D construido desde cero",
+      "github": "Por determinar"
+    },
+    "amescanner": {
+      "name": "AME SCANNER",
+      "description": "Herramienta avanzada de escaneo y análisis",
+      "github": "Por determinar"
+    },
+    "cebu": {
+      "name": "CEBU",
+      "description": "Sistema de utilidad y gestión basado en la nube",
+      "github": "Por determinar"
+    },
+    "oasisbio": {
+      "name": "OasisBio",
+      "description": "Plataforma de investigación y análisis biológico",
+      "github": "Por determinar"
     }
   },
   "motto2": {

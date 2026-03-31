@@ -45,6 +45,11 @@ class I18nManager {
    * @param {string} language - 语言代码
    */
   async loadLanguage(language) {
+    // 如果语言已经加载，直接返回
+    if (this.translations[language]) {
+      return;
+    }
+
     try {
       const response = await fetch(`${i18nConfig.localesPath}/${language}.json`);
       if (!response.ok) {

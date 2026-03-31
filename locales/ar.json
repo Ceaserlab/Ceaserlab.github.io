@@ -75,6 +75,26 @@
       "name": "Biosurf",
       "description": "متصفح مخصص للآلات",
       "github": "قريباً"
+    },
+    "amar": {
+      "name": "AMAR ENGINE",
+      "description": "محرك لعبة 3D قوي مبني من الصفر",
+      "github": "قريباً"
+    },
+    "amescanner": {
+      "name": "AME SCANNER",
+      "description": "أداة مسح وتحليل متقدمة",
+      "github": "قريباً"
+    },
+    "cebu": {
+      "name": "CEBU",
+      "description": "نظام утиليتي وإدارة يعتمد على السحابة",
+      "github": "قريباً"
+    },
+    "oasisbio": {
+      "name": "OasisBio",
+      "description": "منصة أبحاث وتحليل بيولوجي",
+      "github": "قريباً"
     }
   },
   "motto2": {

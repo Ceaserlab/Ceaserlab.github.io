@@ -6,10 +6,10 @@
 export const versionConfig = {
   // 当前版本
   currentVersion: {
-    id: '1.0.2',
-    date: '2026-03-08',
-    name: 'Component-Based Refactor',
-    description: 'Refactored website to use component-based architecture',
+    id: '1.0.3',
+    date: '2026-04-01',
+    name: 'The Dreambuilder Awakens',
+    description: 'A transformative update with animated hero text and project pull-out drawers',
   },
 
   // 版本列表（从旧到新）
@@ -33,6 +33,13 @@ export const versionConfig = {
       date: '2026-03-08',
       name: 'Component-Based Refactor',
       description: 'Refactored website to use component-based architecture',
+      archived: true,
+    },
+    {
+      id: '1.0.3',
+      date: '2026-04-01',
+      name: 'The Dreambuilder Awakens',
+      description: 'A transformative update with animated hero text and project pull-out drawers',
       archived: false,
     },
     // 新版本只需在此添加，保持高扩展性

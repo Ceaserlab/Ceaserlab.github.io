@@ -1,0 +1,126 @@
+/* Main CSS File */
+/* Imports all CSS modules */
+
+@import './variables.css';
+@import './base.css';
+@import './navbar.css';
+@import './hero.css';
+@import './organizations.css';
+@import './facts.css';
+@import './projects.css';
+@import './timeline.css';
+@import './contact.css';
+
+/* Additional Global Styles */
+
+/* Motto Section */
+.motto-section,
+.motto2-section {
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--bg-light);
+  position: relative;
+}
+
+.motto-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.motto-card p {
+  font-size: var(--text-2xl);
+  font-style: italic;
+  color: var(--color-primary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Responsive Motto */
+@media (max-width: 768px) {
+  .motto-section,
+  .motto2-section {
+    padding: var(--spacing-2xl) 0;
+  }
+  
+  .motto-card {
+    padding: var(--spacing-xl);
+  }
+  
+  .motto-card p {
+    font-size: var(--text-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .motto-card {
+    padding: var(--spacing-lg);
+  }
+  
+  .motto-card p {
+    font-size: var(--text-lg);
+  }
+}
+
+/* Gallery Container */
+#gallery-container {
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--bg-light);
+}
+
+/* Smooth scrolling for all sections */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation for elements entering viewport */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all var(--transition-slow);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary: #00ffaa;
+    --color-primary-dark: #00cc88;
+    --border-color: #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
