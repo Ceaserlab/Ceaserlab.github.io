@@ -101,3 +101,15 @@ Create `src/styles/versions/1.0.3.css` with the following structure:
   opacity: 0;
   transform: translateY(20px);
   animation: textReveal 0.6s ease forwards;
+}
+
+@keyframes textReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation delays for each word */
+.hero-text-reveal .word:nth-child(1) { animation-delay: 0.1s; }
+.hero-text-reveal .word:nth-child(2) { animation-delay: 0.2s; }
