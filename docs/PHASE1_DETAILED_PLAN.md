@@ -145,4 +145,16 @@ Create `src/styles/versions/1.0.3.css` with the following structure:
 
 /* Biosurf - Tech/Futuristic */
 .project-card.biosurf {
-  /*
+  /* Minimal, innovative styling */
+}
+
+/* Cebu - Link Project */
+.project-card.cebu {
+  /* Appropriate styling for external link */
+}
+
+/* ============================================
+   GALLERY - Museum Style Presentation
+   ============================================ */
+
+.gallery-section {
