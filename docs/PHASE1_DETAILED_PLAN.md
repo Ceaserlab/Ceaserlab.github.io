@@ -133,4 +133,16 @@ Create `src/styles/versions/1.0.3.css` with the following structure:
   /* Dynamic, exploratory styling */
 }
 
-/* Oermos
+/* Oermos - Corporate/Professional */
+.project-card.oermos {
+  /* Clean, efficient styling */
+}
+
+/* APSUCK - Education/Energy */
+.project-card.apsuck {
+  /* Bold, motivating styling */
+}
+
+/* Biosurf - Tech/Futuristic */
+.project-card.biosurf {
+  /*
